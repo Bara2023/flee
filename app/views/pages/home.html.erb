@@ -1,2 +1,22 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+
+<%= form_for :search, url: travels_path, method: :get do |f| %>
+  <%= f.label :airport_start %>
+  <%= f.text_field :airport_start %>
+  <%= f.label :start_date %>
+  <%= f.date_field :start_date %>
+  <%= f.label :budget %>
+  <%= f.number_field :budget %>
+  <%= f.label :lasting %>
+  <%= f.text_field :lasting, placeholder: "nombre de jours" %>
+  <%= f.label :destination %>
+  <%= f.text_field :destination %>
+  <%= f.label :mood %>
+  <%= f.text_field :mood %>
+  <%= f.label :age %>
+  <%= f.number_field :age %>
+  <%= f.submit %>
+<% end %>
+
