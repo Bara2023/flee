@@ -1,3 +1,5 @@
-<%= @travels.each do |travel|%>
-<%= travel.airport_start %>
+<% @travels.each do |travel|%>
+  <div>
+    airport: <%= travel.airport_start %>
+  </div>
 <% end %>
