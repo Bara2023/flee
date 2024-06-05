@@ -6,8 +6,11 @@ class SearchesController < ApplicationController
   def create
     @search = Search.new(search_params)
     @search.user = current_user
-    @search.save
-    redirect_to search_travels_path(@search)
+    if @search.save
+      redirect_to search_travels_path(@search)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
