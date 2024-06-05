@@ -5,5 +5,6 @@
     Start_date: <%= travel.start_date %>
     Mood: <%= travel.mood %>
     Age: <%= travel.age %>
+    <i class="fa fa-heart" data-controller="like-travels" data-action="click->like-travels#liked" data-like-travels-id-value="<%= travel.id%>" data-like-travels-search-value="<%= params[:search_id]%>"></i>
   </div>
 <% end %>

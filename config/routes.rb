@@ -15,5 +15,8 @@ Rails.application.routes.draw do
     end
   end
 
+
+  get "/fav/:id", to: "liked_travels#fav"
+
   resources :travels, only: [:show, :new, :create]
 end
