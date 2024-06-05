@@ -1,8 +1,17 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
 
-<p><%= @user.name %></p>
-<p><%= @user.age %></p>
-<button type="button" class="btn btn-secondary">Contacter</button>
-<h4>Présentation</h4>
-<p><%= @user.description %></p>
+
+<div class="container-show-user">
+  <% if @user.photo.attached? %>
+    <%= cl_image_tag @user.photo.key, class: "img-show rounded-circle"%>
+  <% end %>
+  <h1><strong><%= @user.name %></strong></h1>
+  <p><%= @user.age %> ans </p>
+  <button type="button" class="btn btn-secondary rounded-5">Contacter</button>
+  </br>
+  <div class="show-user-description">
+    <b><h3>Présentation</h3></b>
+    <p><%= @user.description %></p>
+  </div>
+</div>
