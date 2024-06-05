@@ -14,6 +14,6 @@ Rails.application.routes.draw do
       resources :liked_travels, only: [:create, :destroy]
     end
   end
-
   resources :travels, only: [:show, :new, :create]
+  resources :users, only: %i[show]
 end
