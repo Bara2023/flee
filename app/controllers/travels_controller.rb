@@ -1,16 +1,15 @@
 class TravelsController < ApplicationController
   def index
+    @search = Search.find(params[:search_id])
     @travels = Travel.all
 
-    if params[:search].present?
-    @travels = @travels.where(airport_start: params[:search][:airport_start]) if params[:search][:airport_start].present?
-    @travels = @travels.where(start_date: params[:search][:start_date]) if params[:search][:start_date].present?
-    @travels = @travels.where(budget_max: params[:search][:budget_max]) if params[:search][:budget_max].present?
-
-    # search = Search.new(search_params)
-    # search.user = current_user
-    # search.save
-    end
+    @travels = @travels.where(airport_start: @search.airport_start) if @search.airport_start.present?
+    @travels = @travels.where("start_date > ?", @search.start_date) if @search.start_date.present?
+    @travels = @travels.where("end_date > ?", @search.end_date) if @search.end_date.present?
+    @travels = @travels.where(budget_max: @search.budget_max) if @search.budget_max.present?
+    @travels = @travels.where(destination: @search.destination) if @search.destination.present?
+    @travels = @travels.where(mood: @search.mood) if @search.mood.present?
+    @travels = @travels.where(age: @search.age) if @search.age.present?
   end
 
   def new
@@ -20,11 +19,5 @@ class TravelsController < ApplicationController
   def create
     @travel = Travel.new(search_params)
     @travel.save
-  end
-
-  private
-
-  def search_params
-    params.require(:search).permit(:airport_start, :start_date, :budget_max, :lasting, :destination, :mood, :age, :status)
   end
 end
