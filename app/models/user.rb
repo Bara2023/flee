@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :travels
   has_many :searches
+  has_many :attendancies
 end
