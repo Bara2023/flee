@@ -1,0 +1,13 @@
+<div class="container">
+<h1>Wassup, what travel's project you wanna submit??</h1>
+  <%= simple_form_for @travel do |f| %>
+    <%= f.input :airport_start%>
+    <%= f.input :start_date%>
+    <%= f.input :end_date%>
+    <%= f.input :budget_max%>
+    <%= f.input :destination%>
+    <%= f.input :mood, collection: Travel::MOODS%>
+    <%= f.input :age%>
+    <%= f.submit "Add a travel"%>
+  <% end %>
+</div>
