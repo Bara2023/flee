@@ -1,14 +1,50 @@
 # require "open-uri"
+puts "seed starting..."
 
 Travel.destroy_all
+Search.destroy_all
 User.destroy_all
 
 # Création des utilisateurs
-toto = User.create!(name: "toto", email: "toto@gmail.com", password: "123456")
-alice = User.create!(name: "Alice", email: "alice@example.com", password: "password123")
-bob = User.create!(name: "Bob", email: "bob@example.com", password: "password123")
-charlie = User.create!(name: "Charlie", email: "charlie@example.com", password: "password123")
-diana = User.create!(name: "Diana", email: "diana@example.com", password: "password123")
+toto = User.create!(
+  name: "toto",
+  email: "toto@gmail.com",
+  password: "123456",
+  age: 30,
+  description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+)
+
+alice = User.create!(
+  name: "Alice",
+  email: "alice@example.com",
+  password: "password123",
+  age: 27,
+  description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+)
+
+bob = User.create!(
+  name: "Bob",
+  email: "bob@example.com",
+  password: "password123",
+  age: 31,
+  description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+)
+
+charlie = User.create!(
+  name: "Charlie",
+  email: "charlie@example.com",
+  password: "password123",
+  age: 34,
+  description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+)
+
+diana = User.create!(
+  name: "Diana",
+  email: "diana@example.com",
+  password: "password123",
+  age: 38,
+  description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+)
 
 # Création des voyages pour les utilisateurs
 Travel.create!(
@@ -231,3 +267,6 @@ status: "pending",
 description: "Explore the canals and museums of Amsterdam.",
 user: bob
 )
+
+
+puts "...seed over"

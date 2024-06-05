@@ -10,6 +10,10 @@ class TravelsController < ApplicationController
     @travels = @travels.where(destination: @search.destination) if @search.destination.present?
     @travels = @travels.where(mood: @search.mood) if @search.mood.present?
     @travels = @travels.where(age: @search.age) if @search.age.present?
+
+    if @travels.empty?
+      flash.now[:notice] = "Aucun voyage ne correspond à votre recherche. #{view_context.link_to('Revenir à la page de recherche', new_search_path)}".html_safe
+    end
   end
 
   def new
@@ -17,7 +21,22 @@ class TravelsController < ApplicationController
   end
 
   def create
-    @travel = Travel.new(search_params)
-    @travel.save
+    @travel = Travel.new(travel_params)
+    @travel.user = current_user
+    if @travel.save
+      redirect_to travel_path(@travel)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def show
+    @travel = Travel.find(params[:id])
+  end
+
+  private
+
+  def travel_params
+    params.require(:travel).permit(:airport_start, :start_date, :end_date, :budget_max, :destination, :mood, :age, :status)
   end
 end
