@@ -9,7 +9,7 @@
 
 .banner h6 {
   margin: 0;
-  color: white;
+  color: #F5EADD;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 32px;
   font-weight: bold;
@@ -17,7 +17,7 @@
 
 .banner p {
   font-size: 20px;
-  color: white;
+  color: #F5EADD;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
@@ -42,11 +42,15 @@
   align-items: center;
   justify-content: space-evenly;
   align-items: center;
-  font-size: xx-small;
+  font-size: small;
  }
 
  .card-infos{
   position: absolute;
   bottom: 17px;
   left: 20px;
+ }
+
+ .text-white {
+  font-family: "Dela Gothic One", sans-serif;
  }
