@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     end
   end
 
+  get "/dashboard", to: "dashboard#dashboard"
+  
+  get "/bookmarks", to: "liked_travels#bookmarks"
   get "/fav/:id", to: "liked_travels#fav"
   resources :travels, only: [:show, :new, :create]
   resources :users, only: %i[show]

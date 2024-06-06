@@ -1,0 +1,25 @@
+.nav-container{
+  background-color: #1B3232;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  padding-inline-start: 1vh;
+  padding-inline-end: 1vh;
+  padding-top: 4vh;
+  padding-bottom: 5vh;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: #D6A266
+}
+
+.navbar-icone{
+  color: #D6A266;
+  text-decoration : none
+}
+
+.navbar-selected{
+  color: #F5EADD;
+  text-decoration : none
+}
