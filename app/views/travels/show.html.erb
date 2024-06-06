@@ -1,12 +1,28 @@
+<div class="container-show-user">
 <h1>Your wacky trip</h1>
-<div class="container">
-  <ul>
-    <li><%= @travel.airport_start %></li>
-    <li><%= @travel.start_date %></li>
-    <li><%= @travel.end_date %></li>
-    <li><%= @travel.budget_max %></li>
-    <li><%= @travel.destination %></li>
-    <li><%= @travel.mood %></li>
-    <li><%= @travel.age %></li>
-  </ul>
+  <% if @travel.user.photo.attached? %>
+    <%= cl_image_tag @travel.user.photo.key, class: "img-show rounded-circle"%>
+  <% end %>
+  <h1><strong><%= @travel.user.name %></strong></h1>
+  <p><%= @travel.user.age %> ans </p>
+  <p>propose</p>
+  <h1 class="destination"><%= @travel.destination %></h1>
+</div>
+<div class="show-user-description px-3">
+  <div class="justify-content-around row">
+      <button type="button" class="btn btn-secondary rounded-5 col-5 ms-2">Contacter</button>
+      <button type="button" class="btn btn-secondary rounded-5 btn-candidate col-5 me-2">Candidater</button>
+  </div>
+  </br>
+
+  <div class="card-details d-flex">
+    <p><%= @travel.airport_start %></p>
+    <p><%= @travel.start_date %></p>
+    <p><%= @travel.end_date %></p>
+    <p><%= @travel.budget_max %> €</p>
+    <p><%= @travel.mood %></p>
+    <p><%= @travel.age %> ans</p>
+  </div>
+  <h1>Le voyage proposé</h1>
+  <p><%= @travel.description %></p>
 </div>

@@ -4,21 +4,21 @@
   align-items: center;
   flex-direction: column;
   background-color: dark;
-  color: #F5EADD;
+  color: $cream;
   padding: 60px;
-  background-image: linear-gradient(0deg, rgba(27,50,50,1) 5%, rgba(27,50,50,0.5) 100%), url("background-toto.jpg");
+  background-image: linear-gradient(0deg, rgba(27,50,50,1) 1%, rgba(0,0,0,0.7) 100%), url("background-toto.jpg");
   background-size: cover;
   .btn-secondary {
-    color: #1B3232;
-    background-color: #D6A266;
+    color: $dark-green;
+    background-color: $gold;
     padding: 12px;
-    border-color: #D6A266;
+    border-color: $gold;
     font-weight: bold;
   }
 }
 
 .caroussel-bg {
-  background-color: #1B3232;
+  background-color: $dark-green;
   width: 100vw;
   height: 100vh;
 }
