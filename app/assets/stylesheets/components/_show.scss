@@ -2,29 +2,44 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: #1B3232;
-  color: #F5EADD;
+  background-color: $dark-green;
+  color: $cream;
   padding: 30px;
-  background-image: linear-gradient(0deg, rgba(27,50,50,1) 5%, rgba(27,50,50,0.5) 100%), url("background-toto.jpg");
+  h1 {
+    font-size: xx-large;
+  }
+  background-image: linear-gradient(0deg, rgba(27,50,50,1) 1%, rgba(0,0,0,0.7) 100%), url("background-toto.jpg");
   background-size: cover;
 }
 
 .img-show {
   width: 100px;
   height: 100px;
-  border: 2px solid #D6A266;
+  border: 2px solid $gold;
 }
 
 .show-user-description {
   align-items: start;
-  background-color: #1B3232;
+  background-color: $dark-green;
   width: 100vw;
   height: 100vh;
-  color: #F5EADD;
-  padding: 30px;
+  color: $cream;
+  padding: 10px;
+  h3 {
+    font-weight: bolder;
+  }
 }
 
 .btn-secondary {
-  background-color: #415F5F;
-  border: #415F5F;
+  background-color: $light-green;
+  border: $light-green;
+}
+
+.btn-candidate {
+  background-color: $gold;
+  border: $gold;
+}
+
+.destination {
+  font-family: "Dela Gothic One", sans-serif;
 }
