@@ -1,0 +1,24 @@
+.home-img {
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: dark;
+  color: #F5EADD;
+  padding: 60px;
+  background-image: linear-gradient(0deg, rgba(27,50,50,1) 5%, rgba(27,50,50,0.5) 100%), url("background-toto.jpg");
+  background-size: cover;
+  .btn-secondary {
+    color: #1B3232;
+    background-color: #D6A266;
+    padding: 12px;
+    border-color: #D6A266;
+    font-weight: bold;
+  }
+}
+
+.caroussel-bg {
+  background-color: #1B3232;
+  width: 100vw;
+  height: 100vh;
+}
