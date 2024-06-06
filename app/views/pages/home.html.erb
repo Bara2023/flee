@@ -1,43 +1,6 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h6>Pages#home</h6>
+
 
 <%= link_to "search", new_search_path, class: "btn btn-primary" %>
 
-
-<div class="container">
-  <div class="banner half-width" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
-    <div class="user_proile d-flex">
-      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-      <h4><%= current_user.name %> propose</h4>
-    </div>
-
-    <div id="travelCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <% @travels.each_with_index do |travel, index| %>
-          <div class="carousel-item <%= 'active' if index == 0 %>">
-            <div class="travel_details">
-              <div class="destination">
-                <h1><%= travel.destination %></h1>
-                <div class="destination_details">
-                  Airport: <%= travel.airport_start %><br>
-                  Start Date: <%= travel.start_date %><br>
-                  Mood: <%= travel.mood %><br>
-                  Age: <%= travel.age %>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
-
-      <button class="carousel-control-prev" type="button" data-bs-target="#travelCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#travelCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-  </div>
-</div>
+ <%= render "shared/card" %>
