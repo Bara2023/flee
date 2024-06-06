@@ -12,4 +12,9 @@ class LikedTravelsController < ApplicationController
 
     render json: { status: "ok" }
   end
+
+  def bookmarks
+    @liked_travels = LikedTravel.all
+  end
+
 end
