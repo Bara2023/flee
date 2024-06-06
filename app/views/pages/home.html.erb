@@ -1,6 +1,12 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="home-img">
+  <h1>Flee rassemble des voyageurs du monde entier</h1>
+  </br>
+  <%= link_to "Trouver des voyageurs", new_search_path, class: "btn btn-secondary rounded-5" %>
+</div>
 
-<%= link_to "search", new_search_path, class: "btn btn-primary" %>
+<div class="caroussel-bg">
+  <%= render "shared/card" %>
+</div>
 
 <%= render "shared/navbar_search" %>
+
