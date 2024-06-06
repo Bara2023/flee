@@ -23,5 +23,9 @@
       </div>
 
   </div>
-  <i class="fa fa-heart" data-controller="like-travels" data-action="click->like-travels#liked" data-like-travels-id-value="<%= travel.id%>" data-like-travels-search-value="<%= params[:search_id]%>"></i>
+  <% if LikedTravel.find_by(travel: @travel) %>
+  <i class="fa-solid fa-heart" data-controller="like-travels" data-action="click->like-travels#liked" data-like-travels-id-value="<%= travel.id%>" data-like-travels-search-value="<%= params[:search_id]%>"></i>
+  <% else %>
+  <i class="fa-regular fa-heart" data-controller="like-travels" data-action="click->like-travels#liked" data-like-travels-id-value="<%= travel.id%>" data-like-travels-search-value="<%= params[:search_id]%>"></i>
+  <% end %>
 </div>

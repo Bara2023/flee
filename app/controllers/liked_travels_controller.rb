@@ -4,8 +4,8 @@ class LikedTravelsController < ApplicationController
     @travel = Travel.find(params[:id])
     @search = Search.find(params[:search])
 
-    if LikedTravel.find_by(travel: @travel, search: @search)
-      LikedTravel.find_by(travel: @travel, search: @search).destroy
+    if LikedTravel.find_by(travel: @travel)
+      LikedTravel.find_by(travel: @travel).destroy
     else
       LikedTravel.create(travel: @travel, search: @search)
     end
