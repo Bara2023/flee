@@ -1,0 +1,23 @@
+<nav class="nav-container">
+
+  <!-- menu items -->
+  <%= link_to root_path do %>
+    <i class="navbar-icone fa-solid fa-magnifying-glass fa-xl"></i>
+  <% end %>
+
+  <%= link_to bookmarks_path do %>
+    <i class="navbar-icone fa-regular fa-heart fa-xl"></i>
+  <% end %>
+
+  <%= link_to new_travel_path do %>
+    <i class="navbar-selected fa-solid fa-plus fa-xl"></i>
+  <% end %>
+
+  <%= link_to root_path do %>
+    <i class="navbar-icone fa-regular fa-message fa-xl"></i>
+  <% end %>
+
+  <%= link_to dashboard_path do %>
+    <i class="navbar-icone fa-regular fa-user fa-xl"></i>
+  <% end %>
+</nav>
