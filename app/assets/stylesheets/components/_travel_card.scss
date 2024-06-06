@@ -3,12 +3,13 @@
   background-position: center;
   padding: 150px 0;
   border-radius: 20px;
-  height: 50vh
+  height: 60vh;
+  position: relative;
 }
 
-.banner h4 {
+.banner h6 {
   margin: 0;
-  color: white;
+  color: #F5EADD;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 32px;
   font-weight: bold;
@@ -16,12 +17,40 @@
 
 .banner p {
   font-size: 20px;
-  color: white;
+  color: #F5EADD;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
-// .half-width {
-//   width: 50%;
-//   margin: 0 auto; /* Center the card horizontally */
-// }
+.user-profile{
+  position: absolute;
+  top: 17px;
+  left: 20px;
+}
+
+.card-details{
+  flex-wrap: wrap;
+  }
+
+.card-details p {
+  background: rgb(230, 237, 230);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  margin-right: 10px;
+  border-radius: 20px;
+  color: #497f80;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: small;
+ }
+
+ .card-infos{
+  position: absolute;
+  bottom: 1px;
+  left: 20px;
+ }
+
+ .text-white {
+  font-family: "Dela Gothic One", sans-serif;
+ }

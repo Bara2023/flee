@@ -1,0 +1,24 @@
+.home-img {
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: dark;
+  color: $cream;
+  padding: 60px;
+  background-image: linear-gradient(0deg, rgba(27,50,50,1) 1%, rgba(0,0,0,0.7) 100%), url("background-toto.jpg");
+  background-size: cover;
+  .btn-secondary {
+    color: $dark-green;
+    background-color: $gold;
+    padding: 12px;
+    border-color: $gold;
+    font-weight: bold;
+  }
+}
+
+.caroussel-bg {
+  background-color: $dark-green;
+  width: 100vw;
+  height: 100vh;
+}
