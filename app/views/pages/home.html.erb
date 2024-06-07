@@ -5,8 +5,9 @@
 </div>
 
 <div class="caroussel-bg">
-  <%= render "shared/card" %>
+  <% @travels.each do |travel| %>
+  <%= render "shared/card", travel: travel %>
+  <% end %>
 </div>
 
 <%= render "shared/navbar_search" %>
-
