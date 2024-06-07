@@ -11,7 +11,7 @@
       <%= cl_image_tag @travel.user.photo.key, class: "img-show rounded-circle" %>
     <% end %>
   <% end %>
-  <h1><strong><%= link_to @travel.user.name.capitalize, user_path(@travel.user), style: "text-decoration: none" %></strong></h1>
+  <h1><strong><%= link_to @travel.user.name.capitalize, user_path(@travel.user), style: "text-decoration: none; color: #f5eadd" %></strong></h1>
   <p><%= @travel.user.age %> ans </p>
   <p>propose</p>
   <h1 class="destination"><%= @travel.destination %></h1>
@@ -24,7 +24,7 @@
   </div>
   <br/>
 
-  <div class="card-details d-flex">
+  <div class="card-details d-flex ">
     <p><%= @travel.airport_start %></p>
     <p><%= @travel.start_date %></p>
     <p><%= @travel.end_date %></p>
