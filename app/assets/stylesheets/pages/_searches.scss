@@ -1,11 +1,33 @@
+.title-searches {
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: x-large;
+  text-align: center;
+  color: #1b3232;
+  margin: 25px 0px;
+
+}
+
+.container{
+  position: relative;
+}
+
 input[type="text"], textarea {
   background-color : #f5daba;
   border-radius: 14px;
   border: none;
+  margin-top: 27px;
   // color: #1b3232;
 }
 
 input[type="number"], textarea {
+  background-color : #f5daba;
+  border-radius: 14px;
+  border: none;
+  margin-top: 27px;
+  // color: #1b3232;
+}
+
+input[type="date"], textarea {
   background-color : #f5daba;
   border-radius: 14px;
   border: none;
@@ -32,6 +54,8 @@ input[type="number"], textarea {
   border-radius: 14px;
   padding: 10px;
   background-color: #e7b171;
+  display: block;
+  margin: auto;
 }
 
 .tag-item {
