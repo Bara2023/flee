@@ -4,9 +4,17 @@
     <% Travel.all.each_with_index do |travel, index| %>
       <div class="carousel-item <%= 'active' if index == 0 %>">
         <%= link_to travel_path(travel) do %>
-          <div class="banner half-width" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+          <% if travel.photo.attached? %>
+            <div class="banner half-width" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path travel.photo.key, crop: :fill %>')">
+          <% else %>
+            <div class="banner half-width" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+          <% end %>
             <div class="user-profile d-flex">
-              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered me-2" />
+                <% if travel.user.photo.attached? %>
+                  <%= cl_image_tag travel.user.photo.key, class: "card-trip-user avatar-bordered me-2", alt: "dropdown menu" %>
+                <% else %>
+                  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered me-2" />
+                <% end %>
               <h6><%= travel.user.name.capitalize %> propose</h6>
             </div>
             <div class="card-infos">

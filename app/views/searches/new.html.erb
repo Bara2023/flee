@@ -7,7 +7,7 @@
     <%= f.input :destination, placeholder: 'Destination', label:false %>
 
     <div class="form-group">
-      <%= f.input :start_date, html5: true, input_html: { value: params.dig(:search, :start_date) || Date.today + 2.month }, placeholder: 'Date de départ', label:'Date de départ' %>
+      <%= f.input :start_date, html5: true, input_html: { value: params.dig(:search, :start_date) || Date.today}, placeholder: 'Date de départ', label:'Date de départ' %>
       <%= f.input :end_date, html5: true, input_html: { value: params.dig(:search, :end_date)  || Date.tomorrow + 2.month + 10.days }, placeholder: "Date d'arrivée", label: "Date d'arrivée" %>
 
     </div>
