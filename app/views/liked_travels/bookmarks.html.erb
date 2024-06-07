@@ -1,6 +1,37 @@
+<div class="caroussel-bg p-2">
+  <div class="d-flex flex-column align-content-center mb-4" >
+    <i class="fa-regular fa-heart fa-2xl p-4 mt-3 mb-1 align-self-center" style="color: #F5EADD"></i>
+    <p class="align-self-center h4" style='color: #F5EADD;  font-family: "Dela Gothic One", sans-serif'>Mes coups de coeur</p>
+  </div>
 
-<% @liked_travels.each do |liked_travel| %>
-<%= liked_travel.travel.destination %>
-<% end %>
+  <% @liked_travels.each do |liked_travel| %>
+    <div class="container mb-4">
+        <%= link_to travel_path(liked_travel.travel) do %>
+          <div class="banner half-width" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+            <div class="user-profile d-flex">
+              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered me-2" />
+              <h6><%= liked_travel.travel.user.name.capitalize %> propose</h6>
+            </div>
+
+            <div class="card-infos">
+              <div class="destination">
+                <h1 class="text-white fw-bold"><%= liked_travel.travel.destination %></h1>
+              </div>
+
+              <div class="card-details d-flex">
+                <p><%= liked_travel.travel.airport_start %></p>
+                <p><%= liked_travel.travel.start_date %></p>
+                <p><%= liked_travel.travel.mood %></p>
+                <p><%= liked_travel.travel.age %> ans</p>
+                <p><%= liked_travel.travel.budget_max %> €</p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+    </div>
+  <% end %>
+</div>
+
+
 
 <%= render "shared/navbar_bookmarks" %>
