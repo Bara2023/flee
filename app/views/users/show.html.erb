@@ -1,5 +1,11 @@
 
 <div class="container-show-user">
+  <div class="btn-retour">
+      <%= link_to travel_path do %>
+        <i class="fa-solid fa-arrow-left fa-xl p-3" style="position: absolute; top: 10; left: 0; color: #fde8d0;"></i>
+      <% end %>
+</div>
+
   <% if @user.photo.attached? %>
     <%= cl_image_tag @user.photo.key, class: "img-show rounded-circle"%>
   <% end %>

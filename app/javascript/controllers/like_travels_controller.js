@@ -13,9 +13,9 @@ export default class extends Controller {
   }
 
   liked() {
-    console.log("clicked")
+    // console.log("clicked")
 
-    console.log(this.idValue)
+    // console.log(this.idValue)
 
     fetch(`/fav/${this.idValue}?search=${this.searchValue}`, {
       method: "get",
@@ -23,7 +23,14 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => {
-        this.element.classList.toggle("fa-regular")
+        // console.log(this.element.classList.value)
+        if (this.element.classList.value === "fa-regular fa-heart") {
+          this.element.classList.remove("fa-regular","fa-heart");
+          this.element.classList.add("fa-solid", "fa-heart");
+        } else {
+          this.element.classList.remove("fa-solid","fa-heart");
+          this.element.classList.add("fa-regular","fa-heart");
+        }
       })
   }
 
