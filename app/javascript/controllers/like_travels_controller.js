@@ -13,9 +13,9 @@ export default class extends Controller {
   }
 
   liked() {
-    console.log("clicked")
+    // console.log("clicked")
 
-    console.log(this.idValue)
+    // console.log(this.idValue)
 
     fetch(`/fav/${this.idValue}?search=${this.searchValue}`, {
       method: "get",
