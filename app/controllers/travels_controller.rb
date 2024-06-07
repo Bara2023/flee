@@ -4,8 +4,15 @@ class TravelsController < ApplicationController
     @travels = Travel.all
 
     @travels = @travels.where(airport_start: @search.airport_start) if @search.airport_start.present?
-    @travels = @travels.where("start_date > ?", @search.start_date) if @search.start_date.present?
-    @travels = @travels.where("end_date > ?", @search.end_date) if @search.end_date.present?
+
+    if @search.start_date.present? && @search.end_date.present?
+      @travels = @travels.where("start_date >= ? AND end_date <= ?", @search.start_date, @search.end_date)
+    elsif @search.start_date.present?
+      @travels = @travels.where("start_date >= ?", @search.start_date)
+    elsif @search.end_date.present?
+      @travels = @travels.where("end_date <= ?", @search.end_date)
+    end
+
     @travels = @travels.where(budget_max: @search.budget_max) if @search.budget_max.present?
     @travels = @travels.where(destination: @search.destination) if @search.destination.present?
     @travels = @travels.where(mood: @search.mood) if @search.mood.present?
@@ -37,6 +44,6 @@ class TravelsController < ApplicationController
   private
 
   def travel_params
-    params.require(:travel).permit(:airport_start, :start_date, :end_date, :budget_max, :destination, :mood, :age, :status)
+    params.require(:travel).permit(:airport_start, :start_date, :end_date, :budget_max, :destination, :mood, :age, :status, :date_range)
   end
 end

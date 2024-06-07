@@ -1,19 +1,21 @@
 <div class="container-show-user">
-<h1>Your wacky trip</h1>
+  <h1>Your wacky trip</h1>
   <% if @travel.user.photo.attached? %>
-    <%= cl_image_tag @travel.user.photo.key, class: "img-show rounded-circle"%>
+    <%= link_to user_path(@travel.user) do %>
+      <%= cl_image_tag @travel.user.photo.key, class: "img-show rounded-circle" %>
+    <% end %>
   <% end %>
-  <h1><strong><%= @travel.user.name %></strong></h1>
+  <h1><strong><%= link_to @travel.user.name.capitalize, user_path(@travel.user), style: "text-decoration: none" %></strong></h1>
   <p><%= @travel.user.age %> ans </p>
   <p>propose</p>
   <h1 class="destination"><%= @travel.destination %></h1>
 </div>
 <div class="show-user-description px-3">
   <div class="justify-content-around row">
-      <button type="button" class="btn btn-secondary rounded-5 col-5 ms-2">Contacter</button>
-      <button type="button" class="btn btn-secondary rounded-5 btn-candidate col-5 me-2">Candidater</button>
+    <button type="button" class="btn btn-secondary rounded-5 col-5 ms-2">Contacter</button>
+    <button type="button" class="btn btn-secondary rounded-5 btn-candidate col-5 me-2">Candidater</button>
   </div>
-  </br>
+  <br/>
 
   <div class="card-details d-flex">
     <p><%= @travel.airport_start %></p>

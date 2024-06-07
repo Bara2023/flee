@@ -1,25 +1,38 @@
 
-<div class="container">
-  <div class="banner half-width" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
-        <div class="user-profile d-flex">
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered me-2" />
-            <h6><%= Travel.first.user.name.capitalize %> propose</h6>
-        </div>
-
-      <div class="card-infos">
-          <div class="destination">
-              <h1 class="text-white fw-bold"><%= Travel.first.destination %></h1>
-              </br>
+<div id="travelCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <% Travel.all.each_with_index do |travel, index| %>
+      <div class="carousel-item <%= 'active' if index == 0 %>">
+        <%= link_to travel_path(travel) do %>
+          <div class="banner half-width" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+            <div class="user-profile d-flex">
+              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered me-2" />
+              <h6><%= travel.user.name.capitalize %> propose</h6>
+            </div>
+            <div class="card-infos">
+              <div class="destination">
+                <h1 class="text-white fw-bold"><%= travel.destination %></h1>
+                <br>
+              </div>
+              <div class="card-details d-flex">
+                <p><%= travel.start_date %></p>
+                <p><%= travel.mood %></p>
+                <p><%= travel.budget_max %> €</p>
+                <p><%= travel.age %> ans</p>
+              </div>
+            </div>
           </div>
-
-          <div class="card-details d-flex">
-              <p><%= Travel.first.start_date %></p>
-              <p><%= Travel.first.mood %></p>
-              <p><%= Travel.first.budget_max %> €</p>
-              <p><%= Travel.first.age %> ans</p>
-          </div>
+        <% end %>
       </div>
-
+    <% end %>
   </div>
-
+  <!-- Add Controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#travelCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#travelCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
