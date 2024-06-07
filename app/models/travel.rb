@@ -1,6 +1,6 @@
 class Travel < ApplicationRecord
   belongs_to :user
-  MOODS = ["Sport", "Culture", "Détente", "Adventure"]
+  MOODS = ["Sport", "Culture", "Détente", "Aventure"]
 
   validates :airport_start, presence: true
   validates :start_date, presence: true
