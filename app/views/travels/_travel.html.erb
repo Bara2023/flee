@@ -1,27 +1,26 @@
 
 <div class="container">
-  <div class="banner half-width" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
-        <div class="user-profile d-flex">
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered me-2" />
-            <h6><%= Travel.first.user.name.capitalize %> propose</h6>
-        </div>
 
-      <div class="card-infos">
-          <div class="destination">
-              <h1 class="text-white fw-bold"><%= travel.destination %></h1>
-
-          </div>
-
-          <div class="card-details d-flex">
-             <p><%= travel.airport_start %></p>
-             <p><%= travel.start_date %></p>
-             <p><%= travel.mood %></p>
-             <p><%= travel.age %> ans</p>
-             <p><%= travel.budget_max %> €</p>
-
-          </div>
+    <div class="banner half-width" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+      <div class="user-profile d-flex">
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered me-2" />
+        <h6><%= Travel.first.user.name.capitalize %> propose</h6>
       </div>
 
-  </div>
-  <i class="fa fa-heart" data-controller="like-travels" data-action="click->like-travels#liked" data-like-travels-id-value="<%= travel.id%>" data-like-travels-search-value="<%= params[:search_id]%>"></i>
+      <div class="card-infos">
+        <div class="destination">
+          <h1 class="text-white fw-bold"><%= travel.destination %></h1>
+        </div>
+
+        <div class="card-details d-flex">
+          <p><%= travel.airport_start %></p>
+          <p><%= travel.start_date %></p>
+          <p><%= travel.mood %></p>
+          <p><%= travel.age %> ans</p>
+          <p><%= travel.budget_max %> €</p>
+        </div>
+      </div>
+    </div>
+
+  <i class="fa fa-heart" data-controller="like-travels" data-action="click->like-travels#liked" data-like-travels-id-value="<%= travel.id %>" data-like-travels-search-value="<%= params[:search_id] %>"></i>
 </div>
