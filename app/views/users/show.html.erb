@@ -1,7 +1,7 @@
 
 <div class="container-show-user">
   <div class="btn-retour">
-      <%= link_to travel_path do %>
+      <%= link_to @search_url do %>
         <i class="fa-solid fa-arrow-left fa-xl p-3" style="position: absolute; top: 10; left: 0; color: #fde8d0;"></i>
       <% end %>
 </div>
@@ -17,3 +17,5 @@
   <b><h3>Présentation</h3></b>
   <p><%= @user.description %></p>
 </div>
+
+<%= render "shared/navbar_search" %>

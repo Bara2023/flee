@@ -3,7 +3,8 @@
   <div class="carousel-inner">
     <% Travel.all.each_with_index do |travel, index| %>
       <div class="carousel-item <%= 'active' if index == 0 %>">
-        <%= link_to travel_path(travel) do %>
+        <div class="d-flex justify-content-center">
+        <%= link_to travel_path(travel, search_url: request.original_url) do %>
           <% if travel.photo.attached? %>
             <div class="banner half-width" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path travel.photo.key, crop: :fill %>')">
           <% else %>
@@ -32,6 +33,7 @@
           </div>
         <% end %>
       </div>
+     </div>
     <% end %>
   </div>
   <!-- Add Controls -->

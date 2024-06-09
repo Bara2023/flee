@@ -1,37 +1,39 @@
 
-<div class="container">
-    <% if travel.photo.attached? %>
-      <div class="banner half-width" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path travel.photo.key, crop: :fill %>')">
-    <% else %>
-      <div class="banner half-width" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
-    <% end %>
-      <div class="user-profile d-flex">
-        <% if travel.user.photo.attached? %>
-          <%= cl_image_tag travel.user.photo.key, class: "card-trip-user avatar-bordered me-2", alt: "dropdown menu" %>
-        <% else %>
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered me-2" />
-        <% end %>
-        <h6><%= travel.user.name %> propose</h6>
-      </div>
-
-      <div class="card-infos">
-        <div class="destination">
-          <h1 class="text-white fw-bold"><%= travel.destination %></h1>
+<div class="container d-flex justify-content-center">
+<%= link_to travel_path(travel, search_url: request.original_url) do %>
+      <% if travel.photo.attached? %>
+        <div id="favcard" class="banner half-width" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path travel.photo.key, crop: :fill %>')">
+      <% else %>
+        <div id="favcard" class="banner half-width" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+      <% end %>
+        <div class="user-profile d-flex">
+          <% if travel.user.photo.attached? %>
+            <%= cl_image_tag travel.user.photo.key, class: "card-trip-user avatar-bordered me-2", alt: "dropdown menu" %>
+          <% else %>
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered me-2" />
+          <% end %>
+          <h6><%= travel.user.name %> propose</h6>
         </div>
 
-        <div class="card-details d-flex">
-          <p><%= travel.airport_start %></p>
-          <p><%= travel.start_date %></p>
-          <p><%= travel.mood %></p>
-          <p><%= travel.age %> ans</p>
-          <p><%= travel.budget_max %> €</p>
+        <div class="card-infos">
+          <div class="destination">
+            <h1 class="text-white fw-bold"><%= travel.destination %></h1>
+          </div>
+
+          <div class="card-details d-flex">
+            <p><%= travel.airport_start %></p>
+            <p><%= travel.start_date %></p>
+            <p><%= travel.mood %></p>
+            <p><%= travel.age %> ans</p>
+            <p><%= travel.budget_max %> €</p>
+          </div>
         </div>
-      </div>
-    </div>
+  <% end %>
+
+  <% if LikedTravel.find_by(travel: travel) %>
+  <i id="favbutton" class="fa-solid fa-heart" data-controller="like-travels" data-action="click->like-travels#liked" data-like-travels-id-value="<%= travel.id%>" data-like-travels-search-value="<%= params[:search_id]%>"></i>
+  <% else %>
+  <i id="favbutton" class="fa-regular fa-heart" data-controller="like-travels" data-action="click->like-travels#liked" data-like-travels-id-value="<%= travel.id%>" data-like-travels-search-value="<%= params[:search_id]%>"></i>
+  <% end %>
+  </div>
 </div>
-
-<% if LikedTravel.find_by(travel: travel) %>
-<i class="fa-solid fa-heart" data-controller="like-travels" data-action="click->like-travels#liked" data-like-travels-id-value="<%= travel.id%>" data-like-travels-search-value="<%= params[:search_id]%>"></i>
-<% else %>
-<i class="fa-regular fa-heart" data-controller="like-travels" data-action="click->like-travels#liked" data-like-travels-id-value="<%= travel.id%>" data-like-travels-search-value="<%= params[:search_id]%>"></i>
-<% end %>
