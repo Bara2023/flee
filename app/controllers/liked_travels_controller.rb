@@ -15,6 +15,16 @@ class LikedTravelsController < ApplicationController
 
   def bookmarks
     @liked_travels = LikedTravel.all
+    @search_url = :bookmarks_url
   end
+
+  def show
+  end
+
+  def destroy
+    @liked_travel = LikedTravel.find(params[:id])
+    @liked_travel.destroy
+    redirect_to root_path, status: :see_other
+    end
 
 end

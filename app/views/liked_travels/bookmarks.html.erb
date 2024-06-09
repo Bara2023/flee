@@ -1,15 +1,17 @@
-<div class="caroussel-bg p-2">
+<div class="caroussel-bg p-2 pb-5">
   <div class="d-flex flex-column align-content-center mb-4" >
     <i class="fa-regular fa-heart fa-2xl p-4 mt-3 mb-1 align-self-center" style="color: #F5EADD"></i>
     <p class="align-self-center h4" style='color: #F5EADD;  font-family: "Dela Gothic One", sans-serif'>Mes coups de coeur</p>
   </div>
 
+
+
   <% @liked_travels.each do |liked_travel| %>
-    <div class="container mb-4">
-        <%= link_to travel_path(liked_travel.travel) do %>
-          <div class="banner half-width" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+    <div class="container mb-4 d-flex flex-column flex-wrap align-content-center">
+        <%= link_to travel_path(liked_travel.travel, search_url: request.original_url) do %>
+        <div class="banner half-width" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path liked_travel.travel.photo.key, crop: :fill %>')">
             <div class="user-profile d-flex">
-              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered me-2" />
+              <%= cl_image_tag liked_travel.travel.user.photo.key, class: "card-trip-user avatar-bordered me-2", alt: "dropdown menu" %>
               <h6><%= liked_travel.travel.user.name.capitalize %> propose</h6>
             </div>
 
@@ -27,6 +29,9 @@
               </div>
             </div>
           </div>
+        <%# DELETEEEEEEEEEE %>
+        <%# <%= link_to "Supprimer", liked_travel, method: :destroy, data: { confirm: "Êtes-vous sûr de vouloir supprimer ce voyage de vos favoris ?" }, class: "btn btn-danger mt-2" %>
+        <i id="favbutton" class="fa-solid fa-trash"></i>
         <% end %>
     </div>
   <% end %>

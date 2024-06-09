@@ -1,13 +1,13 @@
 <div class="container-show-user" >
   <div class="btn-retour">
-    <%= link_to new_search_path do %>
+    <%= link_to @search_url do %>
       <i class="fa-solid fa-arrow-left fa-xl p-3" style="position: absolute; top: 10; left: 0; color: #fde8d0;"></i>
     <% end %>
 </div>
 
   <h1>Your wacky trip</h1>
   <% if @travel.user.photo.attached? %>
-    <%= link_to user_path(@travel.user) do %>
+    <%= link_to user_path(@travel.user, search_url: request.original_url) do %>
       <%= cl_image_tag @travel.user.photo.key, class: "img-show rounded-circle" %>
     <% end %>
   <% end %>
@@ -35,3 +35,5 @@
   <h1>Le voyage proposé</h1>
   <p><%= @travel.description %></p>
 </div>
+
+<%= render "shared/navbar_search" %>

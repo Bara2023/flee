@@ -39,6 +39,7 @@ class TravelsController < ApplicationController
 
   def show
     @travel = Travel.find(params[:id])
+    @search_url = params[:search_url]
   end
 
   private

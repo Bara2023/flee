@@ -1,0 +1,15 @@
+#favcard {
+  position: relative;
+  overflow: visible;
+}
+
+
+#favbutton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: $cream;
+  font-size: 140%;
+  cursor: pointer;
+  z-index: 1;
+}

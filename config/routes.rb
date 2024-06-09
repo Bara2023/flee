@@ -11,14 +11,18 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :searches, only: [:new, :create] do
     resources :travels, only: [:index] do
-      resources :liked_travels, only: [:create, :destroy]
+      resources :liked_travels, only: [:create]
     end
   end
 
-  get "/dashboard", to: "dashboard#dashboard"
-  
-  get "/bookmarks", to: "liked_travels#bookmarks"
-  get "/fav/:id", to: "liked_travels#fav"
   resources :travels, only: [:show, :new, :create]
   resources :users, only: %i[show]
+
+  get "/dashboard", to: "dashboard#dashboard"
+
+  get "/fav/:id", to: "liked_travels#fav"
+  get "/bookmarks", to: "liked_travels#bookmarks"
+
+  # resources :liked_travels, only: [:destroy] ?????????
+
 end

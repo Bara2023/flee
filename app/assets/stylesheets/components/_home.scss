@@ -6,8 +6,9 @@
   background-color: dark;
   color: $cream;
   padding: 60px;
-  background-image: linear-gradient(0deg, rgba(27,50,50,1) 1%, rgba(0,0,0,0.7) 100%), url("background-toto.jpg");
+  background-image: linear-gradient(0deg, rgba(27,50,50,1) 1%, rgba(0,0,0,0.8) 80%), url("background-toto.jpg");
   background-size: cover;
+
   .btn-secondary {
     color: $dark-green;
     background-color: $gold;
