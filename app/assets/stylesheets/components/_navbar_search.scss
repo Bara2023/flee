@@ -1,25 +1,66 @@
 .nav-container{
-  background: linear-gradient(0deg, rgba(27,50,50,1) 15%, rgba(27,50,50,0.7567401960784313) 49%, rgba(27,50,50,0.4962359943977591) 74%, rgba(27,50,50,0.32816876750700286) 86%, rgba(27,50,50,0) 100%);
+  background: linear-gradient(0deg, rgba(27,50,50,1) 15%, rgba(27,50,50,0.8) 49%, rgba(27,50,50,0.5) 74%, rgba(27,50,50,0.35) 86%, rgba(27,50,50,0) 100%);
   display: flex;
   justify-content: space-around;
-  text-align: center;
-  padding-inline-start: 1vh;
-  padding-inline-end: 1vh;
   padding-top: 4vh;
   padding-bottom: 5vh;
   overflow: hidden;
   position: fixed;
   bottom: 0;
   width: 100%;
-  color: #D6A266
+  color: #D6A266;
+
+  a{
+    align-content: center;
+  }
 }
 
 .navbar-icone{
   color: #D6A266;
-  text-decoration : none
+  text-decoration : none;
+  align-content: center;
 }
 
 .navbar-selected{
-  color: #F5EADD;
-  text-decoration : none
+  color: $cream;
+  text-align: center;
+  text-decoration: none;
+  background-color: $gold;
+  height: 50px;
+  width: 50px;
+  align-content: center;
+  border-radius: 50%;
+  margin-inline-start: -14px;
+  margin-inline-end: -14px;
+}
+
+
+.nav-containerheart{
+  background: linear-gradient(0deg, rgba(27,50,50,1) 15%, rgba(27,50,50,0.8) 49%, rgba(27,50,50,0.5) 74%, rgba(27,50,50,0.35) 86%, rgba(27,50,50,0) 100%);
+  display: flex;
+  justify-content: space-around;
+  padding-top: 4vh;
+  padding-bottom: 5vh;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: #D6A266;
+
+  a{
+    align-content: center;
+  }
+}
+
+.navbar-selectedheart{
+  color: $cream;
+  text-align: center;
+  text-decoration: none;
+  background-color: $gold;
+  height: 50px;
+  width: 50px;
+  align-content: center;
+  border-radius: 50%;
+  margin-inline-end: -14px;
+  margin-inline-start: -14px;
 }

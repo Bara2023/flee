@@ -1,12 +1,11 @@
 
 <div class="caroussel-bg p-2 pb-5">
   <div class="d-flex flex-column align-content-center p-4" >
-  <%= link_to "Modifier ma recherche", new_search_path, class: "btn btn-secondary rounded-4 mb-4", style: 'color: #244444; background-color: #D6A266; font-family:"Nunito", "Helvetica", "sans-serif"; font-weight: bold' %>
+  <%= link_to "Modifier ma recherche", new_search_path, class: "btn btn-secondary rounded-5 mb-4", style: 'color: #F5EADD; background-color: #415F5F; font-family:"Nunito", "Helvetica", "sans-serif"; font-weight: 500' %>
     <p class="align-self-center h4" style='color: #F5EADD;  font-family: "Dela Gothic One", sans-serif'>Découvre les voyages proposés</p>
   </div>
 
    <%= render @travels %>
   </div>
 </div>
-
 <%= render "shared/navbar_search" %>

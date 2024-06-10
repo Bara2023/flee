@@ -2,7 +2,6 @@ class DashboardController < ApplicationController
   before_action :set_travels
 
   def dashboard
-   
   end
 
   def my_searches
