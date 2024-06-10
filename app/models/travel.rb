@@ -1,5 +1,7 @@
 class Travel < ApplicationRecord
   belongs_to :user
+  has_many :attendances
+
   MOODS = ["Sport", "Culture", "Détente", "Aventure"]
 
   validates :airport_start, presence: true
@@ -11,4 +13,9 @@ class Travel < ApplicationRecord
   validates :age, presence: true
 
   has_one_attached :photo
+
+  def user_has_attended?(user)
+    attendances.exists?(user: user)
+  end
+  
 end
