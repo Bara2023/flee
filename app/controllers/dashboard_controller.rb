@@ -10,7 +10,7 @@ class DashboardController < ApplicationController
   end
 
   def my_candidatures
-  #  @candidatures = current_user.attendances
+   @travels = current_user.travels
   end
 
   def my_travels
