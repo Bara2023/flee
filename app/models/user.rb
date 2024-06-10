@@ -10,4 +10,5 @@ class User < ApplicationRecord
 
   has_one_attached :photo
   has_many :attendances
+  has_many :attended_travels, through: :attendances, class_name: "Travel", foreign_key: "travel_id"
 end

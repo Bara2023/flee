@@ -8,7 +8,7 @@ class AttendancesController < ApplicationController
     if @attendance.save
       redirect_to @travel, notice: 'Ta demande de participation a bien été envoyée'
     else
-      redirect_to @travel, alert: 'Veuillez recommaner votre réservation'
+      redirect_to @travel, alert: 'Veuillez recommander votre réservation'
     end
   end
 
