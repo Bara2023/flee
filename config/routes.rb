@@ -17,14 +17,20 @@ Rails.application.routes.draw do
 
   resources :travels, only: %i[show new create] do
     resources :attendances, only: :create
+    resources :messages, only: :create
     member do
       get :chatroom
-      resources :messages, only: :create
     end
   end
-  
+
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
+
   resources :users, only: :show
   resources :attendances, only: :update
+
+  resources :conversations, only: :index
 
   get "/dashboard", to: "dashboard#dashboard"
   get "/dashboard/searches", to: "dashboard#my_searches"

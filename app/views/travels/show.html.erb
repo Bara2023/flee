@@ -16,12 +16,13 @@
   <p>propose</p>
   <h1 class="destination"><%= @travel.destination %></h1>
 </div>
-
-
-  <div class="show-user-description px-3">
+<div class="show-user-description px-3">
   <div class="justify-content-around row">
     <div class="col-6">
-      <button type="button" class="btn btn-candidate rounded-5 w-100">Contacter</button>
+      <% if current_user %>
+        <%= link_to "Contacter", chatroom_path(current_user.chatroom(@travel.user)), class: "btn btn-candidate rounded-5 w-100" %>
+      <% end %>
+      <%# <button type="button" class="btn btn-candidate rounded-5 w-100">Contacter</button> %>
     </div>
     <div class="col-6">
       <% unless @travel.user_has_attended?(current_user) %>
@@ -43,11 +44,10 @@
     <p><%= @travel.budget_max %> €</p>
     <p><%= @travel.mood %></p>
     <p><%= @travel.age %> ans</p>
-    <p><%= @travel.description %></p>
+  </div>
 
   <h1>Le voyage proposé</h1>
+  <p><%= @travel.description %></p>
 
+  <%= render "shared/navbar_search" %>
 </div>
-
-<%= render "shared/navbar_search" %>
- </div>

@@ -11,7 +11,9 @@
   <% end %>
   <h1><strong><%= @user.name %></strong></h1>
   <p><%= @user.age %> ans </p>
-  <button type="button" class="btn btn-secondary rounded-5">Contacter</button>
+  <% if current_user %>
+    <button type="button" class="btn btn-secondary rounded-5">Contacter</button>
+  <% end %>
 </div>
 <div class="show-user-description">
   <b><h3>Présentation</h3></b>

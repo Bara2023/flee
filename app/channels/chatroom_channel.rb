@@ -1,6 +1,6 @@
 class ChatroomChannel < ApplicationCable::Channel
   def subscribed
-    chatroom = Travel.find(params[:id])
+    chatroom = Chatroom.find(params[:id])
     stream_for chatroom
   end
 
