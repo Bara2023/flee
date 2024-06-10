@@ -2,3 +2,30 @@ Hello from dashboard !
 
 <%= render "shared/navbar_dashboard" %>
 <%= render "shared/navbar" %>
+
+
+<div class="recherches d-flex align-items-center">
+    <h1>Mes recherches</h1>
+        <div class="link ms-2">
+            <%= link_to "<i class='fas fa-chevron-right'></i>".html_safe, "/dashboard/searches" %>
+        </div>
+</div>
+
+<div class="candidatures d-flex align-items-center">
+    <h1>Mes candidatures</h1>
+        <div class="link ms-2">
+            <%= link_to "<i class='fas fa-chevron-right'></i>".html_safe, "/dashboard/candidatures" %>
+        </div>
+</div>
+
+
+
+</div>
+
+<div class="voyages d-flex align-items-center">
+    <h1>Mes voyages</h1>
+        <div class="link ms-2">
+            <%= link_to "<i class='fas fa-chevron-right'></i>".html_safe, "/dashboard/travels" %>
+        </div>
+
+</div>

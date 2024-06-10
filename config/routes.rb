@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   resources :users, only: %i[show]
 
   get "/dashboard", to: "dashboard#dashboard"
+  get "/dashboard/searches", to: "dashboard#my_searches"
+  get "/dashboard/travels", to: "dashboard#my_travels"
+  get "/dashboard/candidatures", to: "dashboard#my_candidatures"
 
   get "/fav/:id", to: "liked_travels#fav"
   get "/bookmarks", to: "liked_travels#bookmarks"
