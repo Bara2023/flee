@@ -14,15 +14,21 @@ Rails.application.routes.draw do
       resources :liked_travels, only: :create
     end
   end
+
   resources :travels, only: %i[show new create] do
     member do
       get :chatroom
       resources :messages, only: :create
+      resources :attendances, only: :create
     end
   end
   resources :users, only: :show
+  resources :attendances, only: :update
 
   get "/dashboard", to: "dashboard#dashboard"
+  get "/dashboard/searches", to: "dashboard#my_searches"
+  get "/dashboard/travels", to: "dashboard#my_travels"
+  get "/dashboard/candidatures", to: "dashboard#my_candidatures"
 
   get "/fav/:id", to: "liked_travels#fav"
   get "/bookmarks", to: "liked_travels#bookmarks"

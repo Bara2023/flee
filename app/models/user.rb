@@ -9,5 +9,5 @@ class User < ApplicationRecord
   has_many :messages
 
   has_one_attached :photo
-  has_many :attendancies
+  has_many :attendances
 end

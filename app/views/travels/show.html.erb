@@ -17,10 +17,22 @@
   <h1 class="destination"><%= @travel.destination %></h1>
 </div>
 
-<div class="show-user-description px-3">
+
+  <div class="show-user-description px-3">
   <div class="justify-content-around row">
-    <button type="button" class="btn btn-secondary rounded-5 col-5 ms-2">Contacter</button>
-    <button type="button" class="btn btn-secondary rounded-5 btn-candidate col-5 me-2">Candidater</button>
+    <div class="col-6">
+      <button type="button" class="btn btn-candidate rounded-5 w-100">Contacter</button>
+    </div>
+    <div class="col-6">
+      <% unless @travel.user_has_attended?(current_user) %>
+        <%= form_with(model: [@travel, Attendance.new], local: true) do |form| %>
+          <%= form.hidden_field :user_id, value: current_user.id %>
+          <%= form.submit 'Candidater', class: "btn btn-candidate rounded-5 w-100" %>
+        <% end %>
+      <% else %>
+        <button type="button" class="btn btn-secondary rounded-5 w-100" disabled>Déjà candidaté</button>
+      <% end %>
+    </div>
   </div>
   <br/>
 
@@ -31,9 +43,11 @@
     <p><%= @travel.budget_max %> €</p>
     <p><%= @travel.mood %></p>
     <p><%= @travel.age %> ans</p>
-  </div>
+    <p><%= @travel.description %></p>
+
   <h1>Le voyage proposé</h1>
-  <p><%= @travel.description %></p>
+
 </div>
 
 <%= render "shared/navbar_search" %>
+ </div>
