@@ -9,17 +9,21 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :searches, only: [:new, :create] do
-    resources :travels, only: [:index] do
-      resources :liked_travels, only: [:create]
+  resources :searches, only: %i[new create] do
+    resources :travels, only: :index do
+      resources :liked_travels, only: :create
     end
   end
 
-  resources :travels, only: [:show, :new, :create] do
-    resources :attendances, only: [:create]
+  resources :travels, only: %i[show new create] do
+    member do
+      get :chatroom
+      resources :messages, only: :create
+      resources :attendances, only: :create
+    end
   end
-  resources :attendances, only: [:update]
-  resources :users, only: %i[show]
+  resources :users, only: :show
+  resources :attendances, only: :update
 
   get "/dashboard", to: "dashboard#dashboard"
   get "/dashboard/searches", to: "dashboard#my_searches"
@@ -30,5 +34,4 @@ Rails.application.routes.draw do
   get "/bookmarks", to: "liked_travels#bookmarks"
 
   # resources :liked_travels, only: [:destroy] ?????????
-
 end
