@@ -5,16 +5,15 @@
     <% end %>
 </div>
 
-  <h1>Your wacky trip</h1>
   <% if @travel.user.photo.attached? %>
     <%= link_to user_path(@travel.user, search_url: request.original_url) do %>
-      <%= cl_image_tag @travel.user.photo.key, class: "img-show rounded-circle" %>
+      <%= cl_image_tag @travel.user.photo.key, class: "img-show rounded-circle mb-2" %>
     <% end %>
   <% end %>
-  <h1><strong><%= link_to @travel.user.name.capitalize, user_path(@travel.user), style: "text-decoration: none; color: #f5eadd" %></strong></h1>
+  <h1 class="mb-0"><%= link_to @travel.user.name.capitalize, user_path(@travel.user), style: "text-decoration: none; color: #f5eadd" %></h1>
   <p><%= @travel.user.age %> ans </p>
-  <p>propose</p>
-  <h1 class="destination"><%= @travel.destination %></h1>
+  <div class="soustitre mt-3">propose</div>
+  <h1 class="destination mb-3" style="font-size: 250%;"><%= @travel.destination %></h1>
 </div>
 
 
@@ -36,18 +35,15 @@
   </div>
   <br/>
 
-  <div class="card-details d-flex ">
-    <p><%= @travel.airport_start %></p>
-    <p><%= @travel.start_date %></p>
-    <p><%= @travel.end_date %></p>
-    <p><%= @travel.budget_max %> €</p>
-    <p><%= @travel.mood %></p>
-    <p><%= @travel.age %> ans</p>
-    <p><%= @travel.description %></p>
+  <div class="d-flex flex-wrap mb-3">
+    <div class="goldtag"> Du <%= @travel.start_date.strftime("%d/%m") %> au <%= @travel.end_date.strftime("%d/%m") %> </div>
+    <div class="goldtag"> Départ - <%= @travel.airport_start %> </div>
+    <div class="goldtag"> Budget max - <%= @travel.budget_max %> € </div>
+    <div class="goldtag"><%= @travel.mood %> </div>
+  </div>
 
-  <h1>Le voyage proposé</h1>
-
-
+  <h1>Le programme</h1>
+    <%= @travel.description %>
 
 </div>
   <h2>Les particpants</h2>
