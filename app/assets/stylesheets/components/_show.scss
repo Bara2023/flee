@@ -35,8 +35,13 @@
 }
 
 .btn-candidate {
+  color: $dark-green;
   background-color: $gold;
   border: $gold;
+}
+
+.btn-candidate:hover {
+  background-color: $gold;
 }
 
 .destination {
