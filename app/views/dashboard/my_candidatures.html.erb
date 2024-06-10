@@ -12,4 +12,9 @@
 <% end %>
 
 
+<div class="text-white">
 
+      <% @my_attendances.each do |attendance| %>
+        <p> <%= attendance.travel.destination %></p>
+        <p> <%= attendance.travel.user.name %></p>
+      <% end %>
