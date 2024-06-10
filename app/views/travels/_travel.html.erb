@@ -1,5 +1,5 @@
 
-<div class="container d-flex justify-content-center">
+<div class="container d-flex justify-content-center pb-4">
 <%= link_to travel_path(travel, search_url: request.original_url) do %>
       <% if travel.photo.attached? %>
         <div id="favcard" class="banner half-width" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path travel.photo.key, crop: :fill %>')">
