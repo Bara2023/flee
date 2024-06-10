@@ -2,7 +2,7 @@ class DashboardController < ApplicationController
   before_action :set_travels
 
   def dashboard
-    @searches = current_user.searches
+   
   end
 
   def my_searches

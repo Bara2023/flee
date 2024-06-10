@@ -1,6 +1,16 @@
-<div class="recherches">
-<h1>Mes voyages</h1>
-<% @travels.each do |travel| %>
-    <h2> <%= travel.destination %></h2>
-   <% end %>
+<div>
+  <h1>Mes voyages</h1>
 </div>
+
+<% @travels.each do |travel| %>
+  <h1 class="text-white"><%= travel.destination %></h1>
+  <div class="text-white">
+    <% if travel.attendances.any? %>
+      <% travel.attendances.each do |attendance| %>
+        <p><%= attendance.status %> - <%= attendance.user.name %></p>
+      <% end %>
+    <% else %>
+      <p>Pas encore de candidature pour ce voyage</p>
+    <% end %>
+  </div>
+<% end %>

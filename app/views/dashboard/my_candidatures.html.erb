@@ -1,15 +1,4 @@
-<% @travels.each do |travel| %>
-  <h1 class="text-white"><%= travel.destination %></h1>
-  <div class="text-white">
-    <% if travel.attendances.any? %>
-      <% travel.attendances.each do |attendance| %>
-        <p><%= attendance.status %> - <%= attendance.user.name %></p>
-      <% end %>
-    <% else %>
-      <p>Pas encore de candidature pour ce voyage</p>
-    <% end %>
-  </div>
-<% end %>
+
 
 
 <div class="text-white">
