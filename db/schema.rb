@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_05_111007) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_10_091956) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,9 +45,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_05_111007) do
   create_table "attendances", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "travel_id", null: false
-    t.boolean "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0
     t.index ["travel_id"], name: "index_attendances_on_travel_id"
     t.index ["user_id"], name: "index_attendances_on_user_id"
   end
@@ -59,6 +59,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_05_111007) do
     t.datetime "updated_at", null: false
     t.index ["search_id"], name: "index_liked_travels_on_search_id"
     t.index ["travel_id"], name: "index_liked_travels_on_travel_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "travel_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["travel_id"], name: "index_messages_on_travel_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "searches", force: :cascade do |t|
@@ -113,6 +123,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_05_111007) do
   add_foreign_key "attendances", "users"
   add_foreign_key "liked_travels", "searches"
   add_foreign_key "liked_travels", "travels"
+  add_foreign_key "messages", "travels"
+  add_foreign_key "messages", "users"
   add_foreign_key "searches", "users"
   add_foreign_key "travels", "users"
 end

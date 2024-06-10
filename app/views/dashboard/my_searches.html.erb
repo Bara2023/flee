@@ -1,0 +1,8 @@
+<div class="recherches">
+<h1>Mes recherches</h1>
+ <% @searches.each do |search| %>
+    <h2> <%= search.airport_start %></h2>
+    <h2> <%= search.destination %></h2>
+    <h2> <%= search.start_date %></h2>
+    <% end %>
+</div>

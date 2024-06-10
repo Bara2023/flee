@@ -22,8 +22,8 @@ thomas.save
 
 alice = User.create!(
   name: "Alice",
-  email: "alice@example.com",
-  password: "password123",
+  email: "alice@gmail.com",
+  password: "123456",
   age: 27,
   description: "Je suis une amoureuse de la nature et de la tranquillité. Mes escapades sont souvent orientées vers des endroits paisibles où je peux me ressourcer. J'adore les retraites dans des lieux isolés, comme des chalets en montagne ou des cottages au bord de l'eau. La méditation, le yoga et la lecture font partie intégrante de mes séjours."
 )
@@ -33,8 +33,8 @@ alice.save
 
 bob = User.create!(
   name: "Bob",
-  email: "bob@example.com",
-  password: "password123",
+  email: "bob@gmail.com",
+  password: "123456",
   age: 31,
   description: "Je suis un historien amateur qui se déplace pour comprendre le passé et ses répercussions sur le présent. Je suis passionné par les musées, les sites archéologiques et les monuments historiques. Chaque destination est pour moi une opportunité d'en apprendre davantage sur les civilisations anciennes et les événements qui ont façonné notre monde."
 )
@@ -44,8 +44,8 @@ bob.save
 
 antoine = User.create!(
   name: "Antoine",
-  email: "antoine@example.com",
-  password: "password123",
+  email: "antoine@gmail.com",
+  password: "123456",
   age: 34,
   description: "Je suis un gastronome curieux et raffiné. Pour moi, découvrir de nouvelles saveurs et traditions culinaires est essentiel. J'aime visiter des marchés locaux, participer à des cours de cuisine et déguster des plats authentiques dans chaque pays que je visite. Mes explorations sont une véritable odyssée culinaire."
 )
@@ -55,8 +55,8 @@ antoine.save
 
 diana = User.create!(
   name: "Diana",
-  email: "diana@example.com",
-  password: "password123",
+  email: "diana@gmail.com",
+  password: "123456",
   age: 38,
   description: "Je suis une photographe passionnée et je parcours le monde pour capturer des moments uniques. Mes périples sont souvent motivés par la recherche des paysages les plus pittoresques et des cultures les plus vibrantes. J'ai un œil artistique et j'adore documenter mes aventures à travers des photos et des récits captivants."
 )

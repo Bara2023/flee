@@ -9,20 +9,30 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :searches, only: [:new, :create] do
-    resources :travels, only: [:index] do
-      resources :liked_travels, only: [:create]
+  resources :searches, only: %i[new create] do
+    resources :travels, only: :index do
+      resources :liked_travels, only: :create
     end
   end
 
-  resources :travels, only: [:show, :new, :create]
-  resources :users, only: %i[show]
+  resources :travels, only: %i[show new create] do
+    resources :attendances, only: :create
+    member do
+      get :chatroom
+      resources :messages, only: :create
+    end
+  end
+  
+  resources :users, only: :show
+  resources :attendances, only: :update
 
   get "/dashboard", to: "dashboard#dashboard"
+  get "/dashboard/searches", to: "dashboard#my_searches"
+  get "/dashboard/travels", to: "dashboard#my_travels"
+  get "/dashboard/candidatures", to: "dashboard#my_candidatures"
 
   get "/fav/:id", to: "liked_travels#fav"
   get "/bookmarks", to: "liked_travels#bookmarks"
-
   resources :liked_travels, only: [:destroy]
 
 end
