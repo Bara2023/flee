@@ -42,6 +42,11 @@ class TravelsController < ApplicationController
     @search_url = params[:search_url]
   end
 
+  def chatroom
+    @travel = Travel.find(params[:id])
+    @message = Message.new
+  end
+
   private
 
   def travel_params

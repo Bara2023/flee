@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :travels
   has_many :searches
+  has_many :messages
 
   has_one_attached :photo
   has_many :attendancies

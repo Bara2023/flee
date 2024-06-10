@@ -1,5 +1,8 @@
 class Travel < ApplicationRecord
   belongs_to :user
+  has_one_attached :photo
+  has_many :messages
+
   MOODS = ["Sport", "Culture", "Détente", "Aventure"]
 
   validates :airport_start, presence: true
@@ -9,6 +12,4 @@ class Travel < ApplicationRecord
   validates :destination, presence: true
   validates :mood, presence: true
   validates :age, presence: true
-
-  has_one_attached :photo
 end
