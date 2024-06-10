@@ -21,13 +21,13 @@
   <div class="show-user-description px-3">
   <div class="justify-content-around row">
     <div class="col-6">
-      <button type="button" class="btn btn-secondary rounded-5 w-100">Contacter</button>
+      <button type="button" class="btn btn-candidate rounded-5 w-100">Contacter</button>
     </div>
     <div class="col-6">
       <% unless @travel.user_has_attended?(current_user) %>
         <%= form_with(model: [@travel, Attendance.new], local: true) do |form| %>
           <%= form.hidden_field :user_id, value: current_user.id %>
-          <%= form.submit 'Candidater', class: "btn btn-secondary rounded-5 w-100" %>
+          <%= form.submit 'Candidater', class: "btn btn-candidate rounded-5 w-100" %>
         <% end %>
       <% else %>
         <button type="button" class="btn btn-secondary rounded-5 w-100" disabled>Déjà candidaté</button>
