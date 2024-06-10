@@ -2,7 +2,7 @@
 
   <!-- menu items -->
   <%= link_to root_path do %>
-    <i class="navbar-icone fa-solid fa-magnifying-glass fa-xl"></i>
+    <i class="navbar-icone fa-solid fa-magnifying-glass fa-xl ms-1"></i>
   <% end %>
 
   <%= link_to bookmarks_path do %>
@@ -17,7 +17,7 @@
     <i class="navbar-icone fa-regular fa-message fa-xl"></i>
   <% end %>
 
-  <%= link_to dashboard_path do %>
+  <%= link_to dashboard_path, class: "me-1" do %>
     <i class="navbar-selected fa-regular fa-user fa-xl"></i>
   <% end %>
 </nav>

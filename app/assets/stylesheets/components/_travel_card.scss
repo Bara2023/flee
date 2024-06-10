@@ -21,6 +21,10 @@
   font-size: 200%;
 }
 
+.entete{
+  align-content: center;
+}
+
 .soustitre {
   font-family: "Raleway", sans-serif;
   font-size: 80%;
@@ -64,6 +68,7 @@ block-size: fit-content;
   margin-bottom: 5px;
   width: fit-content;
   block-size: fit-content;
+  border: solid $cream 1px;
 }
 
 .banner p {
