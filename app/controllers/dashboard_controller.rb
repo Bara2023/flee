@@ -1,8 +1,8 @@
 class DashboardController < ApplicationController
-  def dashboard
-    @travels = Travel.where(user: current_user)
-    @searches = current_user.searches
+  before_action :set_travels
 
+  def dashboard
+    @searches = current_user.searches
   end
 
   def my_searches
@@ -10,10 +10,15 @@ class DashboardController < ApplicationController
   end
 
   def my_candidatures
-   @travels = current_user.travels
+    @my_attendances = current_user.attendances
   end
 
   def my_travels
+  end
+
+  private
+
+  def set_travels
     @travels = Travel.where(user: current_user)
   end
 end
