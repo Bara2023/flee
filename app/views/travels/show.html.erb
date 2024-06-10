@@ -45,6 +45,11 @@
   <h1>Le programme</h1>
     <%= @travel.description %>
 
+</div>
+  <h2>Les particpants</h2>
+  <% @travel.attendances.confirmed.each do |attendance| %>
+      <p><%= link_to attendance.user.name, user_path(attendance.user), class: %></p>
+    <% end %>
 
 <%= render "shared/navbar_search" %>
  </div>
