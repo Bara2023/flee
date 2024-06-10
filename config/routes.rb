@@ -33,6 +33,6 @@ Rails.application.routes.draw do
 
   get "/fav/:id", to: "liked_travels#fav"
   get "/bookmarks", to: "liked_travels#bookmarks"
+  resources :liked_travels, only: [:destroy]
 
-  # resources :liked_travels, only: [:destroy] ?????????
 end

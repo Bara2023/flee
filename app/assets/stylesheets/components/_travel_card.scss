@@ -2,17 +2,68 @@
   background-size: cover;
   background-position: center;
   border-radius: 20px;
-  height: 50vh;
+  height: 300px;
   width: 80vw;
   position: relative;
-}
+  }
 
 .banner h6 {
   margin: 0;
-  color: #F5EADD;
+  color: $cream;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
-  font-weight: bold;
+  font-size: 160%;
+  font-family: "Dela Gothic One", sans-serif;
+  }
+
+.destinationcard{
+  font-family: "Dela Gothic One", sans-serif;
+  color: $cream;
+  font-size: 200%;
+}
+
+.soustitre {
+  font-family: "Raleway", sans-serif;
+  font-size: 80%;
+  text-decoration: none;
+  color: $cream;
+  }
+
+.card-details{
+  flex-direction: column;
+  }
+
+.greentag {
+  font-family: "Raleway", sans-serif;
+  font-size: 100%;
+  background-color: rgba(27, 50, 50, 0.3);
+  backdrop-filter: blur(6px);
+  text-decoration: none;
+  color: $cream;
+  padding: 3px;
+  padding-inline-start: 10px;
+  padding-inline-end: 10px;
+  border-radius: 10px;
+  margin-inline-end: 5px;
+  margin-bottom: 5px;
+  width: fit-content;
+block-size: fit-content;
+}
+
+.goldtag {
+  font-family: "Raleway", sans-serif;
+  font-size: 100%;
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(3px);
+  color: $cream;
+  padding: 3px;
+  padding-inline-start: 10px;
+  padding-inline-end: 10px;
+  border-radius: 10px;
+  margin-inline-end: 5px;
+  margin-bottom: 5px;
+  width: fit-content;
+  block-size: fit-content;
 }
 
 .banner p {
@@ -28,9 +79,6 @@
   left: 20px;
 }
 
-.card-details{
-  flex-wrap: wrap;
-  }
 
 .card-details p {
   background: rgb(230, 237, 230);
