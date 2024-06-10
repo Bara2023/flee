@@ -15,7 +15,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :travels, only: [:show, :new, :create]
+  resources :travels, only: [:show, :new, :create] do
+    resources :attendances, only: [:create]
+  end
+  resources :attendances, only: [:update]
   resources :users, only: %i[show]
 
   get "/dashboard", to: "dashboard#dashboard"
