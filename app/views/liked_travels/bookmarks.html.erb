@@ -12,26 +12,29 @@
         <div class="banner half-width" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path liked_travel.travel.photo.key, crop: :fill %>')">
             <div class="user-profile d-flex">
               <%= cl_image_tag liked_travel.travel.user.photo.key, class: "card-trip-user avatar-bordered me-2", alt: "dropdown menu" %>
-              <h6><%= liked_travel.travel.user.name.capitalize %> propose</h6>
+              <div class="entete">
+              <h6><%= liked_travel.travel.user.name %></h6>
+              <div class="soustitre">propose</div>
+              </div>
             </div>
 
             <div class="card-infos">
-              <div class="destination">
-                <h1 class="text-white fw-bold"><%= liked_travel.travel.destination %></h1>
+              <div class="destinationcard mb-2">
+                <%= liked_travel.travel.destination %>
               </div>
 
-              <div class="card-details d-flex">
-                <p><%= liked_travel.travel.airport_start %></p>
-                <p><%= liked_travel.travel.start_date %></p>
-                <p><%= liked_travel.travel.mood %></p>
-                <p><%= liked_travel.travel.age %> ans</p>
-                <p><%= liked_travel.travel.budget_max %> €</p>
+              <div class="card-details d-flex mb-3">
+                <div class="goldtag"> Du <%= liked_travel.travel.start_date.strftime("%d/%m") %> au <%= liked_travel.travel.end_date.strftime("%d/%m") %> </div>
+                <div class="d-flex">
+                  <div class="goldtag"><%= liked_travel.travel.budget_max %> € </div>
+                  <div class="goldtag"><%= liked_travel.travel.mood %> </div>
+                </div>
               </div>
             </div>
           </div>
-        <%# DELETEEEEEEEEEE %>
-        <%# <%= link_to "Supprimer", liked_travel, method: :destroy, data: { confirm: "Êtes-vous sûr de vouloir supprimer ce voyage de vos favoris ?" }, class: "btn btn-danger mt-2" %>
-        <i id="favbutton" class="fa-solid fa-trash"></i>
+          <%= link_to liked_travel_path(liked_travel), data: { turbo_method: :delete } do %>
+          <i id="favbutton" class="fa-solid fa-trash pe-4"></i>
+          <% end %>
         <% end %>
     </div>
   <% end %>
