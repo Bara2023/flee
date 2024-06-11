@@ -4,4 +4,11 @@ class Attendance < ApplicationRecord
 
   enum status: %i[pending confirmed rejected]
 
+  def translated_status
+    case status.to_s
+    when 'pending' then 'En attente'
+    when 'confirmed' then 'Confirmé'
+    when 'rejected' then 'Refusé'
+    end
+  end
 end

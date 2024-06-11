@@ -1,0 +1,89 @@
+//CSS page Mes Candidatures
+.mini-banner {
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  height: 150px;
+  width: 80vw;
+  position: relative;
+}
+
+.greentag-candidatures {
+  font-family: "Raleway", sans-serif;
+  font-size: 100%;
+  background-color: #18f6044d;
+  backdrop-filter: blur(6px);
+  text-decoration: none;
+  color: $cream;
+  padding: 3px;
+  padding-inline-start: 10px;
+  padding-inline-end: 10px;
+  border-radius: 10px;
+  margin-inline-end: 5px;
+  margin-bottom: 12px;
+  width: fit-content;
+block-size: fit-content;
+border: solid #18f6044d 1px;
+}
+
+.redtag-candidatures {
+  font-family: "Raleway", sans-serif;
+  font-size: 100%;
+  background-color: #f802024d;
+  backdrop-filter: blur(6px);
+  text-decoration: none;
+  color: $cream;
+  padding: 3px;
+  padding-inline-start: 10px;
+  padding-inline-end: 10px;
+  border-radius: 10px;
+  margin-inline-end: 5px;
+  margin-bottom: 12px;
+  width: fit-content;
+block-size: fit-content;
+border: solid #f802024d 1px;
+}
+
+.orangetag-candidatures {
+  font-family: "Raleway", sans-serif;
+  font-size: 100%;
+  background-color: #f675044d;
+  backdrop-filter: blur(6px);
+  text-decoration: none;
+  color: $cream;
+  padding: 3px;
+  padding-inline-start: 10px;
+  padding-inline-end: 10px;
+  border-radius: 10px;
+  margin-inline-end: 5px;
+  margin-bottom: 12px;
+  width: fit-content;
+block-size: fit-content;
+border: solid #f675044d 1px;
+}
+
+.goldtag-candidature {
+  font-family: "Raleway", sans-serif;
+  font-size: 100%;
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(3px);
+  color: $cream;
+  padding: 3px;
+  padding-inline-start: 12px;
+  padding-inline-end: 12px;
+  border-radius: 12px;
+  margin-inline-end: 5px;
+  margin-bottom: 18px;
+  width: fit-content;
+  block-size: fit-content;
+  border: solid $cream 1px;
+}
+
+.titre-candidatures {
+  font-family: "Dela Gothic One", sans-serif;
+  color: $cream;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
