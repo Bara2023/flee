@@ -2,7 +2,6 @@ class AttendancesController < ApplicationController
   before_action :set_travel
   before_action :set_attendance, only: [:accept, :decline]
 
-
   def create
     @attendance = @travel.attendances.new(user: current_user)
 
@@ -33,5 +32,4 @@ class AttendancesController < ApplicationController
   def set_attendance
     @attendance = @travel.attendances.find(params[:id])
   end
-
 end

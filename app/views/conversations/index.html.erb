@@ -1,0 +1,17 @@
+<div class="container">
+  <ul>
+    <% @conversations.each do |conversation| %>
+      <li>
+        <% if conversation.is_a?(Travel) %>
+          <% travel = conversation %>
+          <%= link_to travel.destination, chatroom_travel_path(travel) %>
+        <% else %>
+          <% chatroom = conversation %>
+          <%= link_to chatroom.other_user(current_user).name, chatroom_path(chatroom) %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<%= render "shared/navbar_messages" %>

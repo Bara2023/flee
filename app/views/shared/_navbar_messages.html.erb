@@ -1,8 +1,8 @@
 <nav class="nav-container">
 
   <!-- menu items -->
-  <%= link_to root_path, class: "ms-1" do %>
-    <i class="navbar-selected fa-solid fa-magnifying-glass fa-xl"></i>
+  <%= link_to root_path do %>
+    <i class="navbar-icone fa-solid fa-magnifying-glass fa-xl"></i>
   <% end %>
 
   <%= link_to bookmarks_path do %>
@@ -13,11 +13,11 @@
     <i class="navbar-icone fa-solid fa-plus fa-xl"></i>
   <% end %>
 
-  <%= link_to conversations_path do %>
-    <i class="navbar-icone fa-regular fa-message fa-xl"></i>
+ <%= link_to conversations_path do %>
+    <i class="navbar-selected fa-regular fa-message fa-xl"></i>
   <% end %>
 
   <%= link_to dashboard_path do %>
-    <i class="navbar-icone fa-regular fa-user fa-xl me-1"></i>
+    <i class="navbar-icone fa-regular fa-user fa-xl"></i>
   <% end %>
 </nav>
