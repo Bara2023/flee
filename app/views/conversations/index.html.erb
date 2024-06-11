@@ -4,7 +4,7 @@
       <li>
         <% if conversation.is_a?(Travel) %>
           <% travel = conversation %>
-          <%= link_to travel.destination, chatroom_travel_path(travel) %>
+          <%= link_to travel.destination, chatroom_travel_path(travel) %> proposé par <%= travel.user.name %>
         <% else %>
           <% chatroom = conversation %>
           <%= link_to chatroom.other_user(current_user).name, chatroom_path(chatroom) %>
