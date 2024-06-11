@@ -7,7 +7,16 @@
   <div class="text-white">
     <% if travel.attendances.any? %>
       <% travel.attendances.each do |attendance| %>
-        <p><%= attendance.status %> - <%= attendance.user.name %></p>
+        <p><%= attendance.status %> - <%= attendance.user.name %>
+           <% if attendance.pending? %>
+            <%= button_to 'Accepter', accept_travel_attendance_path(travel, attendance), method: :patch, class: "btn btn-success btn-sm" %>
+            <%= button_to 'Refuser', decline_travel_attendance_path(travel, attendance), method: :patch, class: "btn btn-danger btn-sm" %>
+          <% elsif attendance.confirmed? %>
+            <span class="badge bg-success">Accepté</span>
+          <% elsif attendance.rejected? %>
+            <span class="badge bg-danger">Refusé</span>
+          <% end %>
+        </p>
       <% end %>
     <% else %>
       <p>Pas encore de candidature pour ce voyage</p>
