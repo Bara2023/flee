@@ -16,7 +16,7 @@
   <p><%= @travel.user.age %> ans </p>
 </div>
 <div class="show-user-description px-3">
-  <div class="justify-content-around row">
+  <div class="justify-content-around row mb-5">
     <div class="col-6">
       <% if current_user %>
         <%= link_to "Contacter", chatroom_path(current_user.chatroom(@travel.user)), class: "btn btn-candidate rounded-5 w-100" %>
@@ -34,22 +34,17 @@
       <% end %>
     </div>
   </div>
-  <br/>
 
-  <div class="d-flex flex-wrap mb-3">
-    <div class="goldtag"> Du <%= @travel.start_date.strftime("%d/%m") %> au <%= @travel.end_date.strftime("%d/%m") %> </div>
-    <div class="goldtag"> Départ - <%= @travel.airport_start %> </div>
-    <div class="goldtag"> Budget max - <%= @travel.budget_max %> € </div>
-    <div class="goldtag"><%= @travel.mood %> </div>
+  <div data-controller="switch">
+    <div class="d-flex">
+      <div data-action="click->switch#programme" data-switch-target="onglet1" class="selectedpartial ">Détails</div>
+      <div data-action="click->switch#participants" data-switch-target="onglet2"class="unselectedpartial">Participants</div>
+    </div>
+
+    <div data-switch-target="programme" class="backgroundpartial"><%= render "programme" %></div>
+    <div data-switch-target="participants" class="d-none backgroundpartial"><%= render "participants" %></div>
+
   </div>
-
-  <h1 class="fs-4" style="color: #F5EADD;  font-family: 'Dela Gothic One', sans-serif">Le programme</h1>
-    <%= @travel.description %>
-
-  <h2>Les particpants</h2>
-  <% @travel.attendances.confirmed.each do |attendance| %>
-      <p><%= link_to attendance.user.name, user_path(attendance.user), class: %></p>
-    <% end %>
-
-  <%= render "shared/navbar_search" %>
 </div>
+
+<%= render "shared/navbar_search" %>

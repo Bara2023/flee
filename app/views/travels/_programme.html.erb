@@ -1,0 +1,9 @@
+  <div class="d-flex flex-wrap mb-3">
+    <div class="goldtag"> Du <%= @travel.start_date.strftime("%d/%m") %> au <%= @travel.end_date.strftime("%d/%m") %> </div>
+    <div class="goldtag"> Départ - <%= @travel.airport_start %> </div>
+    <div class="goldtag"> Budget max - <%= @travel.budget_max %> € </div>
+    <div class="goldtag"><%= @travel.mood %> </div>
+  </div>
+
+  <h1 class="fs-5" style="color: #F5EADD;  font-family: 'Dela Gothic One', sans-serif">Au programme</h1>
+    <%= @travel.description %>

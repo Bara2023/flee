@@ -1,0 +1,12 @@
+ <h1 class="fs-6 mb-4" style="color: #F5EADD;  font-family: 'Dela Gothic One', sans-serif; line-height: 150%;">Découvrez les personnes avec qui vous allez voyager</h1>
+  <% @travel.attendances.confirmed.each do |attendance| %>
+    <%= link_to user_path(attendance.user, search_url: request.original_url), class:"lien" do %>
+      <div class="carditem">
+        <div style="color: #F5EADD;  font-family: 'Dela Gothic One', sans-serif">
+          <%= cl_image_tag attendance.user.photo.key, class: "carditem-avatar me-2", alt: "dropdown menu" %>
+          <%= attendance.user.name %>
+        </div>
+        <i class="fa-solid fa-chevron-right"></i>
+      </div>
+    <% end %>
+  <% end %>
