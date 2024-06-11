@@ -16,13 +16,18 @@ Rails.application.routes.draw do
   end
 
   resources :travels, only: %i[show new create] do
-    resources :attendances, only: :create
+    resources :attendances, only: :create do
+      member do
+        patch :accept
+        patch :decline
+      end
+    end
     member do
       get :chatroom
       resources :messages, only: :create
     end
   end
-  
+
   resources :users, only: :show
   resources :attendances, only: :update
 
