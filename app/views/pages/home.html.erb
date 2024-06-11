@@ -3,9 +3,6 @@
   </br>
   <%= link_to "Trouver des voyageurs", new_search_path, class: "btn btn-secondary rounded-5 w-100" %>
 </div>
-<% if current_user %>
-  <%= link_to "ACCES CHATROOM a retirer une fois fini", chatroom_travel_path(current_user) %>
-<% end %>
 <div class="caroussel-bg pb-5">
   <%= render "shared/card"%>
 </div>

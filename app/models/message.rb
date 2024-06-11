@@ -4,6 +4,7 @@ class Message < ApplicationRecord
   belongs_to :travel, optional: true
 
   validate :chatroom_or_travel
+  validates :content, length: { minimum: 3, too_short: "%{count} charactères minimum" }
 
   def sender?(a_user)
     user.id == a_user.id
