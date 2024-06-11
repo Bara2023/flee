@@ -1,5 +1,6 @@
 class AttendancesController < ApplicationController
-  before_action :set_travel, only: [:create]
+  before_action :set_travel
+  before_action :set_attendance, only: [:accept, :decline]
 
   def create
     @attendance = @travel.attendances.new(user: current_user)
@@ -11,12 +12,24 @@ class AttendancesController < ApplicationController
     end
   end
 
-  def update
+  def accept
+    @attendance.confirmed!
+    redirect_to travel_path(@travel), notice: 'La candidature a été acceptée.'
   end
+
+  def decline
+    @attendance.rejected!
+    redirect_to travel_path(@travel), notice: 'La candidature a été refusée.'
+  end
+
 
   private
 
   def set_travel
     @travel = Travel.find(params[:travel_id])
+  end
+
+  def set_attendance
+    @attendance = @travel.attendances.find(params[:id])
   end
 end

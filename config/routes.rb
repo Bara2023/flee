@@ -18,6 +18,12 @@ Rails.application.routes.draw do
   resources :travels, only: %i[show new create] do
     resources :attendances, only: :create
     resources :messages, only: :create
+    resources :attendances, only: :create do
+      member do
+        patch :accept
+        patch :decline
+      end
+    end
     member do
       get :chatroom
     end
@@ -26,10 +32,9 @@ Rails.application.routes.draw do
   resources :chatrooms, only: :show do
     resources :messages, only: :create
   end
-
+  
   resources :users, only: :show
   resources :attendances, only: :update
-
   resources :conversations, only: :index
 
   get "/dashboard", to: "dashboard#dashboard"
@@ -39,6 +44,6 @@ Rails.application.routes.draw do
 
   get "/fav/:id", to: "liked_travels#fav"
   get "/bookmarks", to: "liked_travels#bookmarks"
+  resources :liked_travels, only: [:destroy]
 
-  # resources :liked_travels, only: [:destroy] ?????????
 end

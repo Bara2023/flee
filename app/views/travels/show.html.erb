@@ -1,20 +1,19 @@
 <div class="container-show-user" >
   <div class="btn-retour">
     <%= link_to @search_url do %>
-      <i class="fa-solid fa-arrow-left fa-xl p-3" style="position: absolute; top: 10; left: 0; color: #fde8d0;"></i>
+      <i class="fa-solid fa-arrow-left fa-xl p-3" style="position: absolute; top: 10px; left: 0; color: #fde8d0;"></i>
     <% end %>
 </div>
 
-  <h1>Your wacky trip</h1>
+  <h1 class="destination mb-0" style="font-size: 250%;"><%= @travel.destination %></h1>
+  <div class="soustitre mb-5">proposé par</div>
   <% if @travel.user.photo.attached? %>
     <%= link_to user_path(@travel.user, search_url: request.original_url) do %>
-      <%= cl_image_tag @travel.user.photo.key, class: "img-show rounded-circle" %>
+      <%= cl_image_tag @travel.user.photo.key, class: "img-show rounded-circle mb-2" %>
     <% end %>
   <% end %>
-  <h1><strong><%= link_to @travel.user.name.capitalize, user_path(@travel.user), style: "text-decoration: none; color: #f5eadd" %></strong></h1>
+  <h1 class="mb-0"><%= link_to @travel.user.name.capitalize, user_path(@travel.user), style: "text-decoration: none; color: #f5eadd" %></h1>
   <p><%= @travel.user.age %> ans </p>
-  <p>propose</p>
-  <h1 class="destination"><%= @travel.destination %></h1>
 </div>
 <div class="show-user-description px-3">
   <div class="justify-content-around row">
@@ -37,17 +36,20 @@
   </div>
   <br/>
 
-  <div class="card-details d-flex ">
-    <p><%= @travel.airport_start %></p>
-    <p><%= @travel.start_date %></p>
-    <p><%= @travel.end_date %></p>
-    <p><%= @travel.budget_max %> €</p>
-    <p><%= @travel.mood %></p>
-    <p><%= @travel.age %> ans</p>
+  <div class="d-flex flex-wrap mb-3">
+    <div class="goldtag"> Du <%= @travel.start_date.strftime("%d/%m") %> au <%= @travel.end_date.strftime("%d/%m") %> </div>
+    <div class="goldtag"> Départ - <%= @travel.airport_start %> </div>
+    <div class="goldtag"> Budget max - <%= @travel.budget_max %> € </div>
+    <div class="goldtag"><%= @travel.mood %> </div>
   </div>
 
-  <h1>Le voyage proposé</h1>
-  <p><%= @travel.description %></p>
+  <h1 class="fs-4" style="color: #F5EADD;  font-family: 'Dela Gothic One', sans-serif">Le programme</h1>
+    <%= @travel.description %>
+
+  <h2>Les particpants</h2>
+  <% @travel.attendances.confirmed.each do |attendance| %>
+      <p><%= link_to attendance.user.name, user_path(attendance.user), class: %></p>
+    <% end %>
 
   <%= render "shared/navbar_search" %>
 </div>

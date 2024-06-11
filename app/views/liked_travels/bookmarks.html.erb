@@ -1,6 +1,6 @@
 <div class="caroussel-bg p-2 pb-5">
   <div class="d-flex flex-column align-content-center mb-4" >
-    <i class="fa-regular fa-heart fa-2xl p-4 mt-3 mb-1 align-self-center" style="color: #F5EADD"></i>
+    <i class="fa-regular fa-heart fa-2xl p-4 mt-3 mb-1 align-self-center" style="color: #D6A266"></i>
     <p class="align-self-center h4" style='color: #F5EADD;  font-family: "Dela Gothic One", sans-serif'>Mes coups de coeur</p>
   </div>
 
@@ -9,29 +9,32 @@
   <% @liked_travels.each do |liked_travel| %>
     <div class="container mb-4 d-flex flex-column flex-wrap align-content-center">
         <%= link_to travel_path(liked_travel.travel, search_url: request.original_url) do %>
-        <div class="banner half-width" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path liked_travel.travel.photo.key, crop: :fill %>')">
+        <div class="banner half-width" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(18,51,47,0.3)), linear-gradient(rgba(18,51,47,0.3),rgba(18,51,47,0.3)), url('<%= cl_image_path liked_travel.travel.photo.key, crop: :fill %>')">
             <div class="user-profile d-flex">
               <%= cl_image_tag liked_travel.travel.user.photo.key, class: "card-trip-user avatar-bordered me-2", alt: "dropdown menu" %>
-              <h6><%= liked_travel.travel.user.name.capitalize %> propose</h6>
+              <div class="entete">
+              <h6><%= liked_travel.travel.user.name %></h6>
+              <div class="soustitre">propose</div>
+              </div>
             </div>
 
             <div class="card-infos">
-              <div class="destination">
-                <h1 class="text-white fw-bold"><%= liked_travel.travel.destination %></h1>
+              <div class="destinationcard mb-2">
+                <%= liked_travel.travel.destination %>
               </div>
 
-              <div class="card-details d-flex">
-                <p><%= liked_travel.travel.airport_start %></p>
-                <p><%= liked_travel.travel.start_date %></p>
-                <p><%= liked_travel.travel.mood %></p>
-                <p><%= liked_travel.travel.age %> ans</p>
-                <p><%= liked_travel.travel.budget_max %> €</p>
+              <div class="card-details d-flex mb-3">
+                <div class="goldtag"> Du <%= liked_travel.travel.start_date.strftime("%d/%m") %> au <%= liked_travel.travel.end_date.strftime("%d/%m") %> </div>
+                <div class="d-flex">
+                  <div class="goldtag"><%= liked_travel.travel.budget_max %> € </div>
+                  <div class="goldtag"><%= liked_travel.travel.mood %> </div>
+                </div>
               </div>
             </div>
           </div>
-        <%# DELETEEEEEEEEEE %>
-        <%# <%= link_to "Supprimer", liked_travel, method: :destroy, data: { confirm: "Êtes-vous sûr de vouloir supprimer ce voyage de vos favoris ?" }, class: "btn btn-danger mt-2" %>
-        <i id="favbutton" class="fa-solid fa-trash"></i>
+          <%= link_to liked_travel_path(liked_travel), data: { turbo_method: :delete } do %>
+          <i id="favbutton" class="fa-solid fa-trash pe-4"></i>
+          <% end %>
         <% end %>
     </div>
   <% end %>
