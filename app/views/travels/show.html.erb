@@ -18,19 +18,20 @@
 <div class="show-user-description px-3">
   <div class="justify-content-around row">
     <div class="col-6">
-      <% if current_user %>
+      <% if current_user != @travel.user %>
         <%= link_to "Contacter", chatroom_path(current_user.chatroom(@travel.user)), class: "btn btn-candidate rounded-5 w-100" %>
       <% end %>
-      <%# <button type="button" class="btn btn-candidate rounded-5 w-100">Contacter</button> %>
     </div>
     <div class="col-6">
-      <% unless @travel.user_has_attended?(current_user) %>
-        <%= form_with(model: [@travel, Attendance.new], local: true) do |form| %>
-          <%= form.hidden_field :user_id, value: current_user.id %>
-          <%= form.submit 'Candidater', class: "btn btn-candidate rounded-5 w-100" %>
+      <% if current_user != @travel.user %>
+        <% unless @travel.user_has_attended?(current_user) %>
+          <%= form_with(model: [@travel, Attendance.new], local: true) do |form| %>
+            <%= form.hidden_field :user_id, value: current_user.id %>
+            <%= form.submit 'Candidater', class: "btn btn-candidate rounded-5 w-100" %>
+          <% end %>
+        <% else %>
+          <button type="button" class="btn btn-secondary rounded-5 w-100" disabled>Déjà candidaté</button>
         <% end %>
-      <% else %>
-        <button type="button" class="btn btn-secondary rounded-5 w-100" disabled>Déjà candidaté</button>
       <% end %>
     </div>
   </div>
