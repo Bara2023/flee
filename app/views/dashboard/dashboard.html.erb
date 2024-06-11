@@ -1,31 +1,32 @@
-Hello from dashboard !
-
 <%= render "shared/navbar" %>
 
+<div class="container">
 
-<div class="recherches d-flex align-items-center">
-    <h1>Mes recherches</h1>
-        <div class="link ms-2">
-            <%= link_to "<i class='fas fa-chevron-right'></i>".html_safe, "/dashboard/searches" %>
-        </div>
-</div>
+  <div class="profile d-flex align-items-center">
+      <% if @current_user.photo.attached? %>
+        <%= cl_image_tag @current_user.photo.key, class: "img-show rounded-circle"%>
+      <% end %>
+      <h1><strong><%= @current_user.name %></strong></h1>
+  </div>
 
-<div class="candidatures d-flex align-items-center">
-    <h1>Mes candidatures</h1>
-        <div class="link ms-2">
-            <%= link_to "<i class='fas fa-chevron-right'></i>".html_safe, "/dashboard/candidatures" %>
-        </div>
-</div>
+  <div class="dashboard-items">
 
+    <%= link_to "/dashboard/searches", class: "w-100 h-100 link dashboard-item d-flex align-items-center p-3" do %>
+      <h1>Mes recherches</h1>
+      <i class='fas fa-chevron-right cream'></i>
+    <% end %>
 
+    <%= link_to "/dashboard/candidatures", class: "w-100 h-100 link dashboard-item d-flex align-items-center p-3" do %>
+      <h1>Mes candidatures</h1>
+      <i class='fas fa-chevron-right cream'></i>
+    <% end %>
 
-</div>
+     <%= link_to "/dashboard/voyages", class: "w-100 h-100 link dashboard-item d-flex align-items-center p-3" do %>
+      <h1>Mes voyages</h1>
+      <i class='fas fa-chevron-right cream'></i>
+    <% end %>
 
-<div class="voyages d-flex align-items-center">
-    <h1>Mes voyages</h1>
-        <div class="link ms-2">
-            <%= link_to "<i class='fas fa-chevron-right'></i>".html_safe, "/dashboard/travels" %>
-        </div>
+  </div>
 
 </div>
 

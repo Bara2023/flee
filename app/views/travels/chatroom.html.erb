@@ -3,7 +3,7 @@
   data-travel-subscription-travel-id-value="<%= @travel.id %>"
   data-travel-subscription-current-user-id-value="<%= current_user.id %>">
 
-  <h1>#<%= @travel.destination %></h1>
+  <h1><%= @travel.destination %> - <%= @travel.user.name %></h1>
 
   <div class="messages" data-travel-subscription-target="messages">
     <% @travel.messages.each do |message| %>

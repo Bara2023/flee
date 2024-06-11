@@ -11,5 +11,4 @@ class Attendance < ApplicationRecord
     when 'rejected' then 'Refusé'
     end
   end
-
 end
