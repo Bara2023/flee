@@ -19,10 +19,13 @@
     html: { data: { action: "turbo:submit-end->travel-subscription#resetForm" }, class: "d-flex" } do |f| %>
     <%= f.input :content,
       label: false,
-      placeholder: "Message ##{@travel.destination}",
-      wrapper_html: {class: "flex-grow-1"}
+      placeholder: "Message dans #{@travel.destination} ",
+      wrapper_html: { class: "flex-grow-1" },
+      input_html: { class: "chatroom-input"}
     %>
-    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+    <%= button_tag(type: 'submit', class: 'btn-submit') do %>
+      <i class="fa-regular fa-paper-plane"></i>
+    <% end %>
   <% end %>
 </div>
 
