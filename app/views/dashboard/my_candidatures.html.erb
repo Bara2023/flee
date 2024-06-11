@@ -1,9 +1,35 @@
+<h1 class="titre-candidatures">Mes candidatures</h1>
+
+ <div class="btn-retour">
+    <%= link_to dashboard_url do %>
+      <i class="fa-solid fa-arrow-left fa-xl p-3" style="position: absolute; top: 10px; left: 0; color: #fde8d0;"></i>
+    <% end %>
+</div>
+
+<% @my_attendances.each do |attendance| %>
+  <div class="container mb-4 d-flex flex-column flex-wrap align-content-center">
+    <%= link_to travel_path(attendance.travel, search_url: request.original_url) do %>
+      <div class="mini-banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(18,51,47,0.3)), linear-gradient(rgba(18,51,47,0.3),rgba(18,51,47,0.3)), url('<%= cl_image_path attendance.travel.photo.key, crop: :fill %>')">
+
+        <div class="card-infos">
+          <div class="destinationcard mb-2">
+            <%= attendance.travel.destination %>
+          </div>
 
 
+          <div class="goldtag-candidature"> Du <%= attendance.travel.start_date.strftime("%d/%m") %> au <%= attendance.travel.end_date.strftime("%d/%m") %> </div>
+            <% if attendance.status == "confirmed" %>
+              <div class="greentag-candidatures"> <%= attendance.translated_status %> </div>
+              <% elsif attendance.status == "rejected" %>
+              <div class="redtag-candidatures"> <%= attendance.translated_status %> </div>
+              <% else %>
+              <div class="orangetag-candidatures"> <%= attendance.translated_status %> </div>
+              <% end %>
 
-<div class="text-white">
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
 
-      <% @my_attendances.each do |attendance| %>
-        <p> <%= attendance.travel.destination %></p>
-        <p> <%= attendance.travel.user.name %></p>
-      <% end %>
+<%= render "shared/navbar_dashboard" %>
