@@ -15,12 +15,12 @@ class AttendancesController < ApplicationController
 
   def accept
     @attendance.confirmed!
-    redirect_to travel_path(@travel), notice: 'La candidature a été acceptée.'
+    redirect_to dashboard_travels_path, notice: 'La candidature a été acceptée.'
   end
 
   def decline
     @attendance.rejected!
-    redirect_to travel_path(@travel), notice: 'La candidature a été refusée.'
+    redirect_to dashboard_travels_path, notice: 'La candidature a été refusée.'
   end
 
 
