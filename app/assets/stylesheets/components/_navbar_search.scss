@@ -2,8 +2,25 @@
   background: linear-gradient(0deg, rgba(27,50,50,1) 15%, rgba(27,50,50,0.8) 49%, rgba(27,50,50,0.5) 74%, rgba(27,50,50,0.35) 86%, rgba(27,50,50,0) 100%);
   display: flex;
   justify-content: space-around;
-  padding-top: 4vh;
-  padding-bottom: 5vh;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: #D6A266;
+
+  a{
+    align-content: center;
+  }
+}
+
+.nav-containerfull{
+  background-color: $dark-green;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
   overflow: hidden;
   position: fixed;
   bottom: 0;
@@ -39,8 +56,8 @@
   background: linear-gradient(0deg, rgba(27,50,50,1) 15%, rgba(27,50,50,0.8) 49%, rgba(27,50,50,0.5) 74%, rgba(27,50,50,0.35) 86%, rgba(27,50,50,0) 100%);
   display: flex;
   justify-content: space-around;
-  padding-top: 4vh;
-  padding-bottom: 5vh;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
   overflow: hidden;
   position: fixed;
   bottom: 0;
