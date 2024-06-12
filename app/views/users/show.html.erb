@@ -20,4 +20,25 @@
   <p><%= @user.description %></p>
 </div>
 
+
+<div class="reviews">
+   <% @reviews.each do |review| %>
+        <div class="review-card d-flex">
+            <div class="author-img">
+                <%= cl_image_tag review.author.photo.key, class: "img-show rounded-circle"%>
+                <%= review.author.name%>
+            </div>
+            <div class="rating">
+                <button type="button" class="btn btn-secondary rounded-5 btn-rate"><%= review.rating %> étoiles</button>
+            </div>
+        </div>
+
+      <div class="review-text">
+          <%= review.comment %>
+      </div>
+
+  <% end %>
+
+</div>
+
 <%= render "shared/navbar_search" %>
