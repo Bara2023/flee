@@ -25,6 +25,5 @@ class LikedTravelsController < ApplicationController
     @liked_travel = LikedTravel.find(params[:id])
     @liked_travel.destroy
     redirect_to bookmarks_path, status: :see_other
-    end
-
+  end
 end
