@@ -5,7 +5,8 @@ puts "destroy starting..."
 Travel.destroy_all
 Search.destroy_all
 User.destroy_all
-puts "...destroy done - 1/3"
+Attendance.destroy_all
+puts "...destroy done - 1/4"
 
 puts "user create..."
 
@@ -64,7 +65,7 @@ file = URI.open('app/assets/images/diana.jpeg')
 diana.photo.attach(io: file, filename: "diana.jpeg", content_type: "image/jpeg")
 diana.save
 
-puts "...user done - 2/3"
+puts "...user done - 2/4"
 
 puts "travel create..."
 # Création des voyages pour les utilisateurs
@@ -340,5 +341,14 @@ file = URI.open('app/assets/images/amsterdam.jpeg')
 amsterdam_two.photo.attach(io: file, filename: "amsterdam.jpeg", content_type: "image/jpeg")
 amsterdam_two.save
 
-puts "...travel done"
-puts "...seed done - 3/3"
+puts "...travel done - 3/4"
+puts "attendance create..."
+
+Attendance.create!(
+  user_id: 1,
+  travel_id: 1,
+  status: "confirmed"
+)
+
+puts "...attendance done - 4/4"
+puts "       SEED DONE        "
