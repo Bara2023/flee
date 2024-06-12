@@ -5,7 +5,7 @@
   height: 300px;
   width: 80vw;
   position: relative;
-  }
+}
 
 .banner h6 {
   margin: 0;
@@ -30,11 +30,11 @@
   font-size: 80%;
   text-decoration: none;
   color: $cream;
-  }
+}
 
 .card-details{
   flex-direction: column;
-  }
+}
 
 .greentag {
   font-family: "Raleway", sans-serif;
@@ -50,7 +50,7 @@
   margin-inline-end: 5px;
   margin-bottom: 5px;
   width: fit-content;
-block-size: fit-content;
+  block-size: fit-content;
 }
 
 .goldtag {
@@ -69,6 +69,7 @@ block-size: fit-content;
   width: fit-content;
   block-size: fit-content;
   border: solid $cream 1px;
+  font-weight: bold;
 }
 
 .banner p {
@@ -96,7 +97,7 @@ block-size: fit-content;
   justify-content: space-evenly;
   align-items: center;
   font-size: small;
- }
+}
 
  .card-infos{
   position: absolute;

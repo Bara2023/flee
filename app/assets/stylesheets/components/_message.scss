@@ -10,13 +10,14 @@
   border-radius: 14px;
   padding: 8px;
   min-height: 80px;
-  word-wrap: break-word; 
+  word-wrap: break-word;
+  font-weight: bold;
 }
 
 .sender-style {
-  background-color: $light-green;
+  background-color: $medium-green;
 }
 
 .receiver-style {
-  background-color: $lighter-green;
+  background-color: $light-green;
 }
