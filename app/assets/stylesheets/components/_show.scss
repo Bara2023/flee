@@ -25,7 +25,6 @@
   align-items: start;
   background-color: $dark-green;
   width: 100vw;
-  height: 100vh;
   color: $cream;
   padding: 10px;
   h3 {
@@ -52,4 +51,33 @@
 .destination {
   font-family: "Dela Gothic One", sans-serif;
   color: $cream;
+}
+
+.reviews{
+  color: $cream;
+}
+
+.review-card{
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px;
+}
+
+.review-text{
+  margin: 15px;
+}
+
+.rating{
+  margin-right: 15px;
+  color: $gold;
+}
+
+.author-img img {
+  width: 50px;
+  height: 50px;
+  border: solid 1px $gold;
+}
+
+.btn-rate{
+  border: solid 1px $gold;
 }

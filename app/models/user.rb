@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :attended_travels, through: :attendances, class_name: "Travel", foreign_key: "travel_id"
   has_many :travels_as_attendant, -> { where(attendances: { status: 'confirmed' }) }, through: :attendances, source: :travel
   has_many :liked_travels, through: :searches
+  has_many :reviews, class_name: 'Review', foreign_key: :user_id
+  has_many :written_reviews, class_name: 'Review', foreign_key: :author_id
   has_one_attached :photo
 
   def chatrooms
