@@ -23,3 +23,58 @@
   width: 100%;
   height: 100%;
 }
+
+.logo{
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: 700%;
+  font-weight: 200;
+}
+
+.newhome{
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: dark;
+  color: $cream;
+  padding: 60px;
+
+  .btn-secondary {
+    color: $dark-green;
+    background-color: $gold;
+    padding: 12px;
+    border-color: $gold;
+    font-weight: bold;
+  }
+}
+
+.backgroundhome{
+  background-image: url("mapmonde.png");
+}
+
+.laurastyle {
+  width: 0;
+  height: 0;
+  border-left: 100vw solid #D6A266;
+  border-bottom: 48vh solid #D6A266;
+  border-top: 10vh solid transparent;
+  position: absolute;
+}
+
+.laurastyleup {
+  width: 0;
+  height: 0;
+  border-left: 100vw solid #244444;
+  border-bottom: 7vh solid transparent;
+  border-top: 26vh solid #244444;
+  position: absolute;
+}
+
+.laurastylelike {
+  width: 0;
+  height: 0;
+  border-left: 100vw solid #244444;
+  border-bottom: 7vh solid transparent;
+  border-top: 26vh solid #244444;
+  position: absolute;
+}

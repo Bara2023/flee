@@ -1,23 +1,28 @@
 .chatroom {
-  background: white;
+  background: $cream;
   margin-top: 9px;
   height: calc(100vh - 75px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
+
   padding-bottom: 50px; //pour l'espace avec la navbar
 
   h1 {
     border-bottom: 1px solid $gray-200;
     margin-bottom: 0;
     padding: 1rem;
+    font-family: "Dela Gothic One", sans-serif;
   }
 
   .messages {
     height: 100%;
     overflow: scroll;
     padding: 1rem;
+    color: white;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
   }
 
   #new_message {
@@ -25,7 +30,22 @@
     padding: 1rem;
 
     .form-group {
-      margin-bottom: 0;
+      margin-bottom: 50px;
     }
   }
+
+  .btn-submit {
+    margin-top: 27px;
+    height: 36px;
+    background-color: $gold;
+    border: 1px solid $gold;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+}
+
+.chatroom-input {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  background-color: #F5DABA !important;
 }

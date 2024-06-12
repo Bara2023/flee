@@ -19,10 +19,13 @@
     html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f| %>
     <%= f.input :content,
       label: false,
-      placeholder: "Message ##{@chatroom.other_user(current_user).name}",
-      wrapper_html: {class: "flex-grow-1"}
+      placeholder: "Message pour #{@chatroom.other_user(current_user).name}...",
+      wrapper_html: {class: "flex-grow-1"},
+      input_html: { class: "chatroom-input"}
     %>
-    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+    <%= button_tag(type: 'submit', class: 'btn-submit') do %>
+      <i class="fa-regular fa-paper-plane"></i>
+    <% end %>
   <% end %>
 </div>
 
