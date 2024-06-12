@@ -1,17 +1,38 @@
 <div class="container">
-  <ul>
-    <% @conversations.each do |conversation| %>
-      <li>
-        <% if conversation.is_a?(Travel) %>
-          <% travel = conversation %>
-          <%= link_to travel.destination, chatroom_travel_path(travel) %> proposé par <%= travel.user.name %>
-        <% else %>
-          <% chatroom = conversation %>
-          <%= link_to chatroom.other_user(current_user).name, chatroom_path(chatroom) %>
-        <% end %>
-      </li>
+  <div class="d-flex flex-column align-content-center mb-4" >
+    <i class="fa-regular fa-message fa-2xl p-4 mt-3 mb-1 align-self-center" style="color: #D6A266"></i>
+    <p class="align-self-center h4" style='color: #F5EADD;  font-family: "Dela Gothic One", sans-serif'>Vos conversations</p>
+  </div>
+  <% @conversations.each do |conversation| %>
+    <% if conversation.is_a?(Travel) %>
+      <% travel = conversation %>
+      <%= link_to chatroom_travel_path(travel), class:"lien" do %>
+      <div class="carditem">
+        <div style="color: #F5EADD;  font-family: 'Dela Gothic One', sans-serif">
+          <%= cl_image_tag travel.photo.key, class: "carditem-avatar me-2" %>
+          <%= travel.destination %>
+          <% if travel.user.name != current_user.name %>
+            avec <%= travel.user.name %>
+          <% else %>
+            mon voyage
+          <% end %>
+        </div>
+        <i class="fa-solid fa-chevron-right"></i>
+      </div>
+      <% end %>
+    <% else %>
+      <% chatroom = conversation %>
+      <%= link_to chatroom_path(chatroom), class:"lien" do %>
+      <div class="carditem">
+        <div style="color: #F5EADD;  font-family: 'Dela Gothic One', sans-serif">
+          <%= cl_image_tag chatroom.other_user(current_user).photo.key, class: "carditem-avatar me-2", alt: "dropdown menu" %>
+          <%= chatroom.other_user(current_user).name %>
+        </div>
+        <i class="fa-solid fa-chevron-right"></i>
+      </div>
+      <% end %>
     <% end %>
-  </ul>
+  <% end %>
 </div>
 
 <%= render "shared/navbar_messages" %>
