@@ -26,10 +26,14 @@
         <div class="review-card d-flex">
             <div class="author-img">
                 <%= cl_image_tag review.author.photo.key, class: "img-show rounded-circle"%>
-                <%= review.author.name%>
+                <span class="ms-2"><%= review.author.name %></span>
+                <div class="date">
+                  <%= review.created_at.strftime("%F") %>
+                 </div>
             </div>
+
             <div class="rating">
-                <button type="button" class="btn btn-secondary rounded-5 btn-rate"><%= review.rating %> étoiles</button>
+                <button type="button" class="btn btn-secondary rounded-5 btn-rate"><i class="fa-solid fa-star fa-rotate-90"></i> <%= review.rating %></button>
             </div>
         </div>
 
