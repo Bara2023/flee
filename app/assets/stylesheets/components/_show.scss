@@ -5,13 +5,14 @@
   background-color: $dark-green;
   color: $cream;
   padding-top: 60px;
+
   h1 {
   color: $cream;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 160%;
   font-family: "Dela Gothic One", sans-serif;
   }
-  background-image: linear-gradient(0deg, rgba(27,50,50,1) 1%, rgba(0,0,0,0.8) 80%), url("background-toto.jpg");
+  background-image: linear-gradient(0deg, rgba(27,50,50,1) 1%, rgba(27,50,50,0.7) 80%), url("athenes.jpeg");
   background-size: cover;
 }
 
