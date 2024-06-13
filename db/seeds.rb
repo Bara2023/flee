@@ -437,12 +437,12 @@ file = URI.open('app/assets/images/agadir.jpeg')
 agadir.photo.attach(io: file, filename: "agadir.jpeg", content_type: "image/jpeg")
 agadir.save
 
-fuerteventura = Travel.create!(
+fuerte = Travel.create!(
   airport_start: "Paris",
   start_date: "2024-09-02",
   end_date: "2024-09-09",
   budget_max: "1500",
-  destination: "Fuerteventura",
+  destination: "Fuerte",
   mood: "Sport",
   age: 30,
   status: "pending",
@@ -450,8 +450,8 @@ fuerteventura = Travel.create!(
   user: jean
 )
 file = URI.open('app/assets/images/fuerteventura.jpeg')
-fuerteventura.photo.attach(io: file, filename: "fuerteventura.jpeg", content_type: "image/jpeg")
-fuerteventura.save
+fuerte.photo.attach(io: file, filename: "fuerteventura.jpeg", content_type: "image/jpeg")
+fuerte.save
 
 nazaré = Travel.create!(
   airport_start: "Paris",
