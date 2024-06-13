@@ -2,11 +2,11 @@ require "open-uri"
 puts "seed starting..."
 
 puts "destroy starting..."
-Travel.destroy_all
-Search.destroy_all
-User.destroy_all
-Attendance.destroy_all
 Review.destroy_all
+Attendance.destroy_all
+Search.destroy_all
+Travel.destroy_all
+User.destroy_all
 
 puts "...destroy done - 1/4"
 
@@ -521,14 +521,14 @@ puts "...travel done - 3/4"
 puts "attendance create..."
 
 Attendance.create!(
-  user_id: 6,
-  travel_id: 1,
+  user: robin,
+  travel: vienne,
   status: "confirmed"
 )
 
 Attendance.create!(
-  user_id: 1,
-  travel_id: 17,
+  user: thomas,
+  travel: agadir,
   status: "confirmed"
 )
 

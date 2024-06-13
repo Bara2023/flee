@@ -5,7 +5,7 @@
 
   <h1 style="color: #1B3232"><%= cl_image_tag @travel.photo.key, class: "card-trip-user avatar-bordered me-2" %> <%= @travel.destination %></h1>
   <div class="d-flex justify-content-center pb-1 avatars-overlap">
-    <p><% @travel.attendances.each do |attendance| %>
+    <p><% @travel.attendances.uniq.each do |attendance| %>
       <span class="avatar-overlap">
         <%= cl_image_tag attendance.user.photo.key, class: "card-trip-user avatar-bordered me-2"  %>
       </span>
