@@ -2,7 +2,7 @@
 <div class="container pb-5">
   <h1 class="title-searches">Où voulez-vous aller ?</h1>
   <%= simple_form_for @search do |f| %>
-    <%= f.input :airport_start, placeholder: 'Aéroport de départ', label:false, input_html: { class: "form-input"} %>
+    <%= f.input :airport_start, placeholder: 'Ville de départ', label:false, input_html: { class: "form-input"} %>
     <%= f.input :destination, placeholder: 'Destination', label:false, input_html: { class: "form-input"} %>
 
     <div class="form-group">
@@ -15,7 +15,6 @@
     <%# <%= f.input :mood, collection: Travel::MOODS, label:false, prompt: 'Choisissez votre mood'%>
     <%= f.input :mood, collection: Travel::MOODS, label:"Choisis ton mood", as: :radio_buttons, input_html: { class: "tag-selector form-input" },
                   item_wrapper_class: 'tag-item', include_hidden: false, multiple: false %>
-    <%= f.input :age, placeholder: 'Ton âge', label:false, input_html: { class: "form-input"} %>
     <%= f.submit "C'est parti !", class: "btn-search" %>
   <% end %>
 </div>

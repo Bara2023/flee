@@ -1,9 +1,8 @@
-
 <div class="container-show-user">
   <div class="btn-retour">
-      <%= link_to @search_url do %>
-        <i class="fa-solid fa-arrow-left fa-xl p-3" style="position: absolute; top: 10; left: 0; color: #fde8d0;"></i>
-      <% end %>
+    <%= link_to @search_url do %>
+      <i class="fa-solid fa-arrow-left fa-xl p-3" style="position: absolute; top: 10px; left: 0; color: #fde8d0;"></i>
+    <% end %>
 </div>
 
   <% if @user.photo.attached? %>
@@ -12,12 +11,14 @@
   <h1><strong><%= @user.name %></strong></h1>
   <p><%= @user.age %> ans </p>
   <% if current_user != @user %>
-    <button type="button" class="btn btn-secondary rounded-5">Contacter</button>
+    <button type="button" class="btn btn-secondary rounded-5 ps-5 pe-5 mb-4" style="background-color: #D6A266; color: #1B3232">Contacter</button>
   <% end %>
 </div>
 <div class="show-user-description">
-  <b><h3>Présentation</h3></b>
-  <p><%= @user.description %></p>
+  <div style="padding: 20px; background: linear-gradient(180deg, #244444 62%, #1b3232 100%); border-radius:15px; margin-inline:5px;">
+    <b><h3 class="mt-1">Présentation</h3></b>
+    <p><%= @user.description %></p>
+  </div>
 </div>
 
 
@@ -42,7 +43,7 @@
       </div>
 
   <% end %>
-
 </div>
 
+<div class="pb-5"></div>
 <%= render "shared/navbar_search" %>
