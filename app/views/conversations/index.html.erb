@@ -1,7 +1,8 @@
+<div class="laurastylelike" style="z-index: -1;"></div>
 <div class="container">
   <div class="d-flex flex-column align-content-center mb-4" >
-    <i class="fa-regular fa-message fa-2xl p-4 mt-3 mb-1 align-self-center" style="color: #D6A266"></i>
-    <p class="align-self-center h4" style='color: #F5EADD;  font-family: "Dela Gothic One", sans-serif'>Vos conversations</p>
+    <i class="fa-regular fa-message fa-2xl p-4 mt-4 mb-1 align-self-center" style="color: #D6A266"></i>
+    <p class="align-self-center h4" style='color: #F5EADD;  font-family: "Dela Gothic One", sans-serif'>Mes conversations</p>
   </div>
   <% @conversations.each do |conversation| %>
     <% if conversation.is_a?(Travel) %>
