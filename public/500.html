@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Erreur Interne(500)</title>
+  <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   .rails-default-error-page {
     background-color: #EFEFEF;
@@ -12,13 +13,10 @@
     margin: 0;
   }
 
-  .rails-default-error-page div.dialog {
+  .container{
     width: 95%;
     max-width: 33em;
     margin: 4em auto 0;
-  }
-
-  .rails-default-error-page div.dialog > div {
     border: 1px solid #CCC;
     border-right-color: #999;
     border-left-color: #999;
@@ -31,36 +29,26 @@
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
 
-  .rails-default-error-page h1 {
+
+
+  .container h1 {
     font-size: 100%;
     color: #730E15;
     line-height: 1.5em;
   }
 
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+  
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
-  </div>
+  <div class="container">
+    <div class="error-code">Erreur Interne</div>
+    <h1>Oups, quelque chose s'est mal passé !</h1>
+    <p>Il semble que notre serveur rencontre des difficultés techniques en ce moment.</p>
+    <p>Nous travaillons activement à résoudre ce problème. Veuillez revenir dans quelques minutes.</p>
+    <p class="contact">Si vous avez besoin d'aide immédiate, contactez notre support à <a href="mailto:support@monsite.com">support@monsite.com</a> ou appelez le 01 23 45 67 89.</p>
+</div>
 </body>
 </html>

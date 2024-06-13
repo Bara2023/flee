@@ -1,18 +1,25 @@
-<div class="container-show-user" >
+<div class="container-show-user", style="background-image: linear-gradient(0deg, rgba(27,50,50,1) 1%, rgba(27,50,50,0.7) 80%), url('<%= cl_image_path @travel.photo.key %>');">
   <div class="btn-retour">
     <%= link_to @search_url do %>
       <i class="fa-solid fa-arrow-left fa-xl p-3" style="position: absolute; top: 10px; left: 0; color: #fde8d0;"></i>
     <% end %>
-</div>
-  <h1 class="destination mb-0" style="font-size: 250%;"><%= @travel.destination %></h1>
-  <div class="soustitre mb-5">proposé par</div>
-  <% if @travel.user.photo.attached? %>
-    <%= link_to user_path(@travel.user, search_url: request.original_url) do %>
-      <%= cl_image_tag @travel.user.photo.key, class: "img-show rounded-circle mb-2" %>
+  </div>
+
+  <h1 class="destination mt-5 mb-4" style="font-size: 250%;"><%= @travel.destination %></h1>
+  <div class="soustitre mt-5", style="font-size: medium">proposé par</div>
+
+    <%= link_to user_path(@travel.user, search_url: request.original_url), class:"lien", style:"width: 90vw" do %>
+      <div class="carditem mb-4", style="background-color: #244444">
+        <div class="d-flex", style="color: #F5EADD; font-family: 'Dela Gothic One', sans-serif">
+          <%= cl_image_tag @travel.user.photo.key, style:"width: 55px; height: 55px !important" , class: "carditem-avatar me-2", alt: "dropdown menu" %>
+          <div style="font-size: x-large; line-height: 1.25; align-self: center;">
+            <%= @travel.user.name %>
+            <div class="soustitre" style="font-size: medium;"><%= @travel.user.age %> ans</div>
+          </div>
+        </div>
+        <i class="fa-solid fa-chevron-right"></i>
+      </div>
     <% end %>
-  <% end %>
-  <h1 class="mb-0"><%= link_to @travel.user.name.capitalize, user_path(@travel.user), style: "text-decoration: none; color: #f5eadd" %></h1>
-  <p><%= @travel.user.age %> ans </p>
 </div>
 <div class="show-user-description px-3">
   <% if @travel.user_has_attended?(current_user) && @travel.attendances.find_by(user: current_user).status == "confirmed"%>
