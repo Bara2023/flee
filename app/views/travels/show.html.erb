@@ -4,7 +4,6 @@
       <i class="fa-solid fa-arrow-left fa-xl p-3" style="position: absolute; top: 10px; left: 0; color: #fde8d0;"></i>
     <% end %>
 </div>
-
   <h1 class="destination mb-0" style="font-size: 250%;"><%= @travel.destination %></h1>
   <div class="soustitre mb-5">proposé par</div>
   <% if @travel.user.photo.attached? %>
@@ -16,36 +15,35 @@
   <p><%= @travel.user.age %> ans </p>
 </div>
 <div class="show-user-description px-3">
-  <div class="justify-content-around row mb-5">
-    <div class="col-6">
-      <% if current_user != @travel.user %>
-        <%= link_to "Contacter", chatroom_path(current_user.chatroom(@travel.user)), class: "btn btn-candidate rounded-5 w-100" %>
-      <% end %>
+  <% if @travel.user_has_attended?(current_user) && @travel.attendances.find_by(user: current_user).status == "confirmed"%>
+    <div class="col-12">
+      <%= link_to "Discussion de groupe", chatroom_travel_path(@travel), class: "btn btn-candidate rounded-5 w-100" %>
     </div>
-    <div class="col-6">
-      <% if current_user != @travel.user %>
-        <% unless @travel.user_has_attended?(current_user) %>
-          <%= form_with(model: [@travel, Attendance.new], local: true) do |form| %>
-            <%= form.hidden_field :user_id, value: current_user.id %>
-            <%= form.submit 'Candidater', class: "btn btn-candidate rounded-5 w-100" %>
+    <% else %>
+    <div class="justify-content-around row mb-5">
+      <div class="col-6">
+          <%= link_to "Contacter", chatroom_path(current_user.chatroom(@travel.user)), class: "btn btn-candidate rounded-5 w-100" %>
+      </div>
+      <div class="col-6">
+          <% if @travel.user_has_attended?(current_user) == false %>
+            <%= form_with(model: [@travel, Attendance.new], local: true) do |form| %>
+              <%= form.hidden_field :user_id, value: current_user.id %>
+              <%= form.submit 'Candidater', class: "btn btn-candidate rounded-5 w-100" %>
+            <% end %>
+          <% else %>
+            <button type="button" class="btn btn-secondary rounded-5 w-100" disabled>Déjà candidaté</button>
           <% end %>
-        <% else %>
-          <button type="button" class="btn btn-secondary rounded-5 w-100" disabled>Déjà candidaté</button>
-        <% end %>
-      <% end %>
+      </div>
+    <% end %>
     </div>
-  </div>
-
-  <div data-controller="switch">
-    <div class="d-flex">
-      <div data-action="click->switch#programme" data-switch-target="onglet1" class="selectedpartial ">Détails</div>
-      <div data-action="click->switch#participants" data-switch-target="onglet2"class="unselectedpartial">Participants</div>
+    <div data-controller="switch">
+      <div class="d-flex">
+        <div data-action="click->switch#programme" data-switch-target="onglet1" class="selectedpartial ">Détails</div>
+        <div data-action="click->switch#participants" data-switch-target="onglet2"class="unselectedpartial">Participants</div>
+      </div>
+      <div data-switch-target="programme" class="backgroundpartial"><%= render "programme" %></div>
+      <div data-switch-target="participants" class="d-none backgroundpartial"><%= render "participants" %></div>
     </div>
-
-    <div data-switch-target="programme" class="backgroundpartial"><%= render "programme" %></div>
-    <div data-switch-target="participants" class="d-none backgroundpartial"><%= render "participants" %></div>
-
-  </div>
 </div>
 
 <%= render "shared/navbar_search" %>
