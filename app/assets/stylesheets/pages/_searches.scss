@@ -31,6 +31,7 @@ input[type="date"], textarea {
   background-color : #f5daba;
   border-radius: 14px;
   border: none;
+  margin-left: 0px !important;  
   // color: #1b3232;
 }
 
@@ -38,6 +39,11 @@ input[type="date"], textarea {
 .form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #1b3232;
   opacity: 1; /* Firefox */
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
 }
 
 
