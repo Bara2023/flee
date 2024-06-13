@@ -3,7 +3,16 @@
   data-travel-subscription-travel-id-value="<%= @travel.id %>"
   data-travel-subscription-current-user-id-value="<%= current_user.id %>">
 
-  <h1><%= @travel.destination %> - <%= @travel.user.name %></h1>
+  <h1><%= cl_image_tag @travel.photo.key, class: "card-trip-user avatar-bordered me-2" %> <%= @travel.destination %></h1>
+  <div class="d-flex justify-content-center pb-1 avatars-overlap">
+    <p><% @travel.attendances.each do |attendance| %>
+      <span class="avatar-overlap">
+        <%= cl_image_tag attendance.user.photo.key, class: "card-trip-user avatar-bordered me-2"  %>
+      </span>
+    <% end %></p>
+  </div>
+
+
 
   <div class="messages" data-travel-subscription-target="messages">
     <% @travel.messages.each do |message| %>

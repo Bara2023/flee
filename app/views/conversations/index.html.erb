@@ -9,7 +9,7 @@
       <%= link_to chatroom_travel_path(travel), class:"lien" do %>
       <div class="carditem">
         <div style="color: #F5EADD;  font-family: 'Dela Gothic One', sans-serif">
-          <%= cl_image_tag travel.photo.key, class: "carditem-avatar me-2" %>
+          <%= cl_image_tag travel.photo.key, class: "card-trip-user avatar-bordered me-2" %>
           <%= travel.destination %>
           <% if travel.user.name != current_user.name %>
             avec <%= travel.user.name %>
@@ -25,7 +25,7 @@
       <%= link_to chatroom_path(chatroom), class:"lien" do %>
       <div class="carditem">
         <div style="color: #F5EADD;  font-family: 'Dela Gothic One', sans-serif">
-          <%= cl_image_tag chatroom.other_user(current_user).photo.key, class: "carditem-avatar me-2", alt: "dropdown menu" %>
+          <%= cl_image_tag chatroom.other_user(current_user).photo.key, class: "card-trip-user avatar-bordered me-2", alt: "dropdown menu" %>
           <%= chatroom.other_user(current_user).name %>
         </div>
         <i class="fa-solid fa-chevron-right"></i>
