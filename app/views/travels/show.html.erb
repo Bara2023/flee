@@ -21,12 +21,13 @@
       </div>
     <% end %>
 </div>
+
 <div class="show-user-description px-3">
   <% if @travel.user_has_attended?(current_user) && @travel.attendances.find_by(user: current_user).status == "confirmed"%>
     <div class="col-12">
-      <%= link_to "Discussion de groupe", chatroom_travel_path(@travel), class: "btn btn-candidate rounded-5 w-100" %>
+      <%= link_to "Discussion de groupe", chatroom_travel_path(@travel), class: "btn btn-candidate rounded-5 w-100 mb-4" %>
     </div>
-    <% else %>
+  <% else %>
     <div class="justify-content-around row mb-5">
       <div class="col-6">
           <%= link_to "Contacter", chatroom_path(current_user.chatroom(@travel.user)), class: "btn btn-candidate rounded-5 w-100" %>
@@ -41,8 +42,9 @@
             <button type="button" class="btn btn-secondary rounded-5 w-100" disabled>Déjà candidaté</button>
           <% end %>
       </div>
-    <% end %>
     </div>
+  <% end %>
+
     <div data-controller="switch">
       <div class="d-flex">
         <div data-action="click->switch#programme" data-switch-target="onglet1" class="selectedpartial ">Détails</div>
