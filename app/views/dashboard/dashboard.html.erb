@@ -1,28 +1,27 @@
-<%= render "shared/navbar" %>
 
-<div class="container">
-
-  <div class="profile d-flex align-items-center">
+<div class="laurastylelike" style="z-index: -1;"></div>
+<div class="container", style="padding: 22px">
+  <div class="profile d-flex align-items-center", style="margin-bottom: 370px">
       <% if @current_user.photo.attached? %>
-        <%= cl_image_tag @current_user.photo.key, class: "img-show rounded-circle"%>
+        <%= cl_image_tag @current_user.photo.key, class: "img-show rounded-circle", style:"width: 70px; height: 70px; margin-inline-start: 10px;"%>
       <% end %>
-      <h1><strong><%= @current_user.name %></strong></h1>
+      <h1 style="margin-left: 21px; margin-top: 10px; font-family: 'Dela Gothic One', sans-serif; font-size: 32px"><strong> Tableau de bord</strong></h1>
   </div>
 
   <div class="dashboard-items">
 
     <%= link_to "/dashboard/searches", class: "w-100 h-100 link dashboard-item d-flex align-items-center p-3" do %>
-      <h1>Mes recherches</h1>
+      <h1 style="font-size: 24px">Mes recherches</h1>
       <i class='fas fa-chevron-right cream'></i>
     <% end %>
 
     <%= link_to "/dashboard/candidatures", class: "w-100 h-100 link dashboard-item d-flex align-items-center p-3" do %>
-      <h1>Mes candidatures</h1>
+      <h1 style="font-size: 24px">Mes candidatures</h1>
       <i class='fas fa-chevron-right cream'></i>
     <% end %>
 
-     <%= link_to "/dashboard/travels", class: "w-100 h-100 link dashboard-item d-flex align-items-center p-3" do %>
-      <h1>Mes voyages</h1>
+     <%= link_to "/dashboard/travels", class: "w-100 h-100 link dashboard-item d-flex align-items-center p-3", style:"border: 0px" do %>
+      <h1 style="font-size: 24px">Mes voyages</h1>
       <i class='fas fa-chevron-right cream'></i>
     <% end %>
 
